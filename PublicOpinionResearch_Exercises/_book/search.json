@@ -218,5 +218,115 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
     ]
+  },
+  {
+    "objectID": "Exercise_3.html#splitting-variable-mutate-cut",
+    "href": "Exercise_3.html#splitting-variable-mutate-cut",
+    "title": "3  Exercise 3",
+    "section": "3.3 Splitting variable (mutate() & cut())",
+    "text": "3.3 Splitting variable (mutate() & cut())\n\nPiping + OperatorsUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#sub-populations-filter",
+    "href": "Exercise_3.html#sub-populations-filter",
+    "title": "3  Exercise 3",
+    "section": "3.4 Sub-populations (filter())",
+    "text": "3.4 Sub-populations (filter())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#combining-datasets-merge",
+    "href": "Exercise_3.html#combining-datasets-merge",
+    "title": "3  Exercise 3",
+    "section": "3.5 Combining Datasets (merge())",
+    "text": "3.5 Combining Datasets (merge())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#aggregations-group_by",
+    "href": "Exercise_3.html#aggregations-group_by",
+    "title": "3  Exercise 3",
+    "section": "3.6 Aggregations (group_by())",
+    "text": "3.6 Aggregations (group_by())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#reshaping-data-pivot_long-pivot_wider",
+    "href": "Exercise_3.html#reshaping-data-pivot_long-pivot_wider",
+    "title": "3  Exercise 3",
+    "section": "3.7 Reshaping data (pivot_long() & pivot_wider())",
+    "text": "3.7 Reshaping data (pivot_long() & pivot_wider())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#transformations-a---b-c",
+    "href": "Exercise_3.html#transformations-a---b-c",
+    "title": "3  Exercise 3",
+    "section": "3.8 Transformations (a  <- b +c)",
+    "text": "3.8 Transformations (a  &lt;- b +c)\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#rowmeans",
+    "href": "Exercise_3.html#rowmeans",
+    "title": "3  Exercise 3",
+    "section": "3.8 RowMeans(````)",
+    "text": "3.8 RowMeans(````)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#rowmeansrowmeans",
+    "href": "Exercise_3.html#rowmeansrowmeans",
+    "title": "3  Exercise 3",
+    "section": "3.9 RowMeans(rowMeans())",
+    "text": "3.9 RowMeans(rowMeans())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#regressions-lm-glm",
+    "href": "Exercise_3.html#regressions-lm-glm",
+    "title": "3  Exercise 3",
+    "section": "3.10 Regressions (lm() & glm())",
+    "text": "3.10 Regressions (lm() & glm())\n\nPre-RequisiteUse case + DocumentationWhenHowESS Example",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#full-analysis-pipeline",
+    "href": "Exercise_3.html#full-analysis-pipeline",
+    "title": "3  Exercise 3",
+    "section": "3.11 Full Analysis Pipeline",
+    "text": "3.11 Full Analysis Pipeline",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_3.html#cheat-sheets-and-bingo",
+    "href": "Exercise_3.html#cheat-sheets-and-bingo",
+    "title": "3  Exercise 3",
+    "section": "3.2 Cheat Sheets and Bingo!",
+    "text": "3.2 Cheat Sheets and Bingo!",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Exercise 3</span>"
+    ]
   }
 ]

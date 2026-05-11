@@ -25,4 +25,171 @@ T5: Splitting Variable of Choice ✅
 ::::::
 :::::::
 
-For this exercise, we have some R cheat sheets and a BINGO! But first, a recap exercise, so we do not forget what we did in the last wo weeks. 
+For this exercise, we have some R cheat sheets and a BINGO! But first, a recap exercise, so we do not forget what we did in the last wo weeks.
+
+## Cheat Sheets and Bingo!
+
+
+## Splitting variable (``mutate() & cut()``)
+
+::: {.panel-tabset}
+
+### Piping + Operators
+
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+## Sub-populations (``filter()``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## Combining Datasets (``merge()``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## Aggregations (``group_by()``)
+
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+## Reshaping data (``pivot_long() & pivot_wider()``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## Transformations (``a  <- b +c``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## RowMeans(``rowMeans()``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## Regressions (``lm() & glm()``)
+
+::: {.panel-tabset}
+
+### Pre-Requisite
+
+
+### Use case + Documentation
+
+
+### When 
+
+
+###  How
+
+### ESS Example
+
+:::
+
+
+## Full Analysis Pipeline
+
+
