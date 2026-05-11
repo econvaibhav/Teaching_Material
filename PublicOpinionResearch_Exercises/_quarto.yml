@@ -7,6 +7,7 @@ book:
     - index.qmd
     - intro.qmd
     - Exercise_2.qmd
+    - Exercise_3.qmd
 
 bibliography: references.bib
 

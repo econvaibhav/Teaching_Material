@@ -172,6 +172,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exercise 2</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exercise_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Exercise 3</span></span></a>
+  </div>
+</li>
     </ul>
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
@@ -276,10 +282,10 @@ window.Quarto = {
 <span class="header-section-number">1.3.2</span> R UI</h3>
 <p>Here is how to understand the UI of R Studio and why each part is helpful:</p>
 <ul>
-<li><p><strong><u>R Console</u></strong>: The R Console is the place where you can type and run R code immediately. When you write something in the console and press Enter, R runs that code right away and shows the result. However, the console <strong>doesn’t save your code for later use</strong>, so if closed it will be lost.</p></li>
-<li><p><strong><u>R Files (.R, .Rmd)</u></strong>: R Markdown (.Rmd) is like a notebook. It allows you to both write and save both your R code and comments (using “<strong>#</strong>”). You can run your code, see the results, and then save everything. It will be available when you restart working.</p></li>
-<li><p><strong><u>Environment</u></strong>: The Environment tab is your storage space. It keeps track of every variable, dataset, or object you have created during your session. If it isn’t in the environment, R doesn’t “know” it exists. You can clean this broom in the top-middle bar. You can also click on the downward arrow in list (top-right), select grid and selectively clean.</p></li>
-<li><p><strong><u>Files, Plots, and Packages</u></strong>: This pane is your multi-tool. The <strong>Files</strong> tab shows your computer’s folders, <strong>Plots</strong> is where your graphs will appear, and the <strong>Packages</strong> tab shows you the tools currently installed on your system. Basically a results tab</p></li>
+<li><p><u>R Console</u>: The R Console is the place where you can type and run R code immediately. When you write something in the console and press Enter, R runs that code right away and shows the result. However, the console <strong>doesn’t save your code for later use</strong>, so if closed it will be lost.</p></li>
+<li><p><u>R Files (.R, .Rmd)</u>: R Markdown (.Rmd) is like a notebook. It allows you to both write and save both your R code and comments (using “<strong>#</strong>”). You can run your code, see the results, and then save everything. It will be available when you restart working.</p></li>
+<li><p><u>Environment</u>: The Environment tab is your storage space. It keeps track of every variable, dataset, or object you have created during your session. If it isn’t in the environment, R doesn’t “know” it exists. You can clean this broom in the top-middle bar. You can also click on the downward arrow in list (top-right), select grid and selectively clean.</p></li>
+<li><p><u>Files, Plots, and Packages</u>: This pane is your multi-tool. The <strong>Files</strong> tab shows your computer’s folders, <strong>Plots</strong> is where your graphs will appear, and the <strong>Packages</strong> tab shows you the tools currently installed on your system. Basically a results tab</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="Rmap.png" class="img-fluid figure-img"></p>
@@ -300,7 +306,7 @@ window.Quarto = {
 <li>
 <strong>Run a whole chunk</strong>: Click the <strong>green play arrow</strong> (<span class="math inline">\(\blacktriangleright\)</span>) at the top right corner of the chunk.</li>
 <li>
-<strong>Run line-by-line</strong>: Place your cursor on a specific line and press <strong><u><code>Ctrl + Enter</code></u></strong> (Windows) or <strong><u><code>Cmd + Enter</code></u></strong> (Mac).</li>
+<strong>Run line-by-line</strong>: Place your cursor on a specific line and press <u><code>Ctrl + Enter</code></u> (Windows) or <u><code>Cmd + Enter</code></u> (Mac).</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="Rcodechunk.png" class="img-fluid figure-img"></p>
@@ -332,47 +338,47 @@ window.Quarto = {
 <li>
 <strong>Demographics</strong>
 <ul>
-<li>Age (use <span style="color:green"><strong><u>agea</u></strong></span>, based on the variable documentation: agea – Age of respondent, calculated); located in <span style="color:blue">“Gender, age and household composition 1/89”</span>
+<li>Age (use <span style="color:green"><u>agea</u></span>, based on the variable documentation: agea – Age of respondent, calculated); located in <span style="color:blue">“Gender, age and household composition 1/89”</span>
 </li>
-<li>Gender (use <span style="color:green"><strong><u>gndr</u></strong></span>); located in <span style="color:blue">“Gender, age and household composition 2/89”</span>
+<li>Gender (use <span style="color:green"><u>gndr</u></span>); located in <span style="color:blue">“Gender, age and household composition 2/89”</span>
 </li>
-<li>Education (use <span style="color:green"><strong><u>eduyrs</u></strong></span>, based on the variable documentation: eduyrs – Years of full-time education completed); located in <span style="color:blue">“Socio-demographic profile 1/627” -&gt; “ESS standard variables 1/153”</span>
+<li>Education (use <span style="color:green"><u>eduyrs</u></span>, based on the variable documentation: eduyrs – Years of full-time education completed); located in <span style="color:blue">“Socio-demographic profile 1/627” -&gt; “ESS standard variables 1/153”</span>
 </li>
-<li>Country (<span style="color:green"><strong><u>cntry</u></strong></span>): Identifier variable, downloads automatically</li>
+<li>Country (<span style="color:green"><u>cntry</u></span>): Identifier variable, downloads automatically</li>
 </ul>
 </li>
 <li>
 <strong>Non sensitive Questions:</strong>
 <ul>
-<li>How interested in politics (<span style="color:green"><strong><u>polintr</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>How interested in politics (<span style="color:green"><u>polintr</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>News Consumption (<span style="color:green"><strong><u>nwspol</u></strong></span>: News about politics and current affairs, watching, reading or listening, in minutes); located at <span style="color:blue">“Media and trust 1/13”</span>
+<li>News Consumption (<span style="color:green"><u>nwspol</u></span>: News about politics and current affairs, watching, reading or listening, in minutes); located at <span style="color:blue">“Media and trust 1/13”</span>
 </li>
 </ul>
 </li>
 <li>
 <strong>Sensitive Questions:</strong>
 <ul>
-<li>Immigrants make country worse or better place to live (<span style="color:green"><strong><u>imwbcnt</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Immigrants make country worse or better place to live (<span style="color:green"><u>imwbcnt</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>Country’s cultural life undermined or enriched by immigrants (<span style="color:green"><strong><u>imueclt</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Country’s cultural life undermined or enriched by immigrants (<span style="color:green"><u>imueclt</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>Immigration bad or good for country’s economy (<span style="color:green"><strong><u>imbgeco</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Immigration bad or good for country’s economy (<span style="color:green"><u>imbgeco</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>Trust in Police (<span style="color:green"><strong><u>trstplc</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Trust in Police (<span style="color:green"><u>trstplc</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>Trust in Parliament (<span style="color:green"><strong><u>trstprl</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Trust in Parliament (<span style="color:green"><u>trstprl</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
-<li>Placement on left right scale (<span style="color:green"><strong><u>lrscale</u></strong></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
+<li>Placement on left right scale (<span style="color:green"><u>lrscale</u></span>); located at <span style="color:blue">“Politics 1/615” -&gt; “ESS standard variables”</span>
 </li>
 </ul>
 </li>
 <li>
-<strong>Survey Mode</strong> (<span style="color:green"><strong><u>mode</u></strong></span> – Mode of data collection)
+<strong>Survey Mode</strong> (<span style="color:green"><u>mode</u></span> – Mode of data collection)
 <ul>
-<li>Interview length in minutes, main questionnaire (<span style="color:green"><strong><u>inwtm</u></strong></span>); located at <span style="color:blue">“Administrative variables 1/49”</span>
+<li>Interview length in minutes, main questionnaire (<span style="color:green"><u>inwtm</u></span>); located at <span style="color:blue">“Administrative variables 1/49”</span>
 </li>
-<li>Interview time spend in section B (Politics, sensitive questions: <span style="color:green"><strong><u>inwds, ainws, ainwe, binwe</u></strong></span>); located at <span style="color:blue">“Administrative variables 1/49”</span>
+<li>Interview time spend in section B (Politics, sensitive questions: <span style="color:green"><u>inwds, ainws, ainwe, binwe</u></span>); located at <span style="color:blue">“Administrative variables 1/49”</span>
 </li>
 </ul>
 </li>
@@ -389,24 +395,26 @@ window.Quarto = {
 <div class="col-sm-6">
 <div class="card border-primary mb-3" style="max-width: 30rem;">
 <div class="card-header">
-In-Class Task
+<p>In-Class Task</p>
 </div>
 <div class="card-body text-primary">
 <p class="card-text">
-T1: Downloading and Loading ESS Subset on R.<br> T2: Introduction to Key Commands <br> T3: Plotting Variable Distributions <br> T4: Cross Country and Mode Comparision
 </p>
+<p>T1: Downloading and Loading ESS Subset on R.<br> T2: Introduction to Key Commands <br> T3: Plotting Variable Distributions <br> T4: Cross Country and Mode Comparision</p>
+
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="card border-primary mb-3" style="max-width: 30rem;">
 <div class="card-header">
-Independent Work
+<p>Independent Work</p>
 </div>
 <div class="card-body text-primary">
 <p class="card-text">
-IT1: How does T3 change based on other variables available <br> IT2: Survey Time and Sensitive Questions <br> IT3: Demographic, Country, Mode and Time Based Differences
 </p>
+<p>IT1: How does T3 change based on other variables available <br> IT2: Survey Time and Sensitive Questions <br> IT3: Demographic, Country, Mode and Time Based Differences</p>
+
 </div>
 </div>
 </div>
@@ -445,7 +453,9 @@ IT1: How does T3 change based on other variables available <br> IT2: Survey Time
 </div>
 </div>
 <div class="alert alert-dismissible alert-danger">
-<p><button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> Let us look at this carefully and ask any questions if something is unclear. I will explain the code and results.</p>
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Wait!</strong> Let us look at this carefully and ask any questions if something is unclear. I will explain the code and results.</p>
 </div>
 <hr>
 <p>We will now be loading the dataset. The command to load a dataset depends on its extension. For example is it a “.csv”, “.xlxs”, “.dta” etc. In our case, it is a <strong>“.csv”</strong>, so we will be using the command <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>. We can call this file “ESS_Subset” and save it in the environment. Here is the code for that:</p>
@@ -511,24 +521,28 @@ dttm  (4): inwds, ainws, ainwe, binwe
 </div>
 <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
 <div class="card-header">
-Tip!
+<p>Tip!</p>
 </div>
 <div class="card-body">
 <p class="card-text">
-Tip: You can click “Show in New Window” to open the data in another window and look at both, the variables and the .Rmd/.R file. <img src="ViewData2.png" class="img-fluid" alt="View the Data"></p>
+</p>
+<p>Tip: You can click “Show in New Window” to open the data in another window and look at both, the variables and the .Rmd/.R file. <img src="ViewData2.png" class="img-fluid" alt="View the Data"></p>
+
 </div>
 </div>
 <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
 <div class="card-header">
-Question
+<p>Question</p>
 </div>
 <div class="card-body">
 <p class="card-text">
-What is <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> and why do we use it?
 </p>
+<p>What is <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> and why do we use it?</p>
+
 <p class="card-text">
-<code><a href="https://rdrr.io/r/base/c.html">c()</a></code> is used to create a <strong>vector</strong>, a type of data structure in R. The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> stands for combine and it does exactly that. It is helpful when working with other commands and storing common value, for example, test scores in a class. The values inside <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> can be manupilated together, for example, dividing everything by 2, finding the mean and much more!
 </p>
+<p><code><a href="https://rdrr.io/r/base/c.html">c()</a></code> is used to create a <strong>vector</strong>, a type of data structure in R. The <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> stands for combine and it does exactly that. It is helpful when working with other commands and storing common value, for example, test scores in a class. The values inside <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> can be manupilated together, for example, dividing everything by 2, finding the mean and much more!</p>
+
 </div>
 </div>
 <p>While looking at the columns, which are stored based on the question number, it is also helpful to add the labels which correspond to the actual question/meta-data in the survey for clarity in the future. This also helps with gaining familiarity with the dataset. We will do this by first running <code>install.packages("labelled")</code> to install the <code>labelled</code> library and then loading the library using <code><a href="https://larmarange.github.io/labelled/">library(labelled)</a></code>. We will be using the function <code><a href="https://larmarange.github.io/labelled/reference/var_label.html">set_variable_labels()</a></code></p>
@@ -572,12 +586,13 @@ What is <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> and why do 
 <p>The dataset would then look something like this, helping with future navigation: <img src="labels.png" class="img-fluid" alt="Dataset with added labels"></p>
 <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
 <div class="card-header">
-Tip!
+<p>Tip!</p>
 </div>
 <div class="card-body">
 <p class="card-text">
-It is also worth noting that some columns have names (questions in the survey), which are quite long and hence, it is possible to add <code>\n</code> to the labels to ensure whenever they are printed they don’t go beyond the page/graph borders.
 </p>
+<p>It is also worth noting that some columns have names (questions in the survey), which are quite long and hence, it is possible to add <code>\n</code> to the labels to ensure whenever they are printed they don’t go beyond the page/graph borders.</p>
+
 <p>
 The <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code> command stands for remove and it is used to remove objects (data, vectors, graphs, functions etc.) from the current environment to have a cleaner environment and remove objects which are not of use to us.
 </p>
@@ -1229,16 +1244,19 @@ $ psu      &lt;dbl&gt; 5433, 5564, 5506, 5436, 5577, 5892, 5505, 5469, 5444, 553
 </div>
 <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
 <div class="card-header">
-Question
+<p>Question</p>
 </div>
 <div class="card-body">
 <p class="card-text">
-Looking at this variable, we <strong>immediately notice a problem!</strong> Can you guess what it is? We will be solving that in the next section.
 </p>
+<p>Looking at this variable, we <strong>immediately notice a problem!</strong> Can you guess what it is? We will be solving that in the next section.</p>
+
 </div>
 </div>
 <div class="alert alert-dismissible alert-danger">
-<p><button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> We have covered a lot now! Let us look at this carefully and ask any questions if something is unclear. Would you like me explain anything again?</p>
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Wait!</strong> We have covered a lot now! Let us look at this carefully and ask any questions if something is unclear. Would you like me explain anything again?</p>
 </div>
 </section></section><section id="variable-distributions" class="level3" data-number="1.5.4"><h3 data-number="1.5.4" class="anchored">
 <span class="header-section-number">1.5.4</span> Variable Distributions</h3>
@@ -1257,7 +1275,7 @@ Looking at this variable, we <strong>immediately notice a problem!</strong> Can 
 <div class="accordion-item">
 <h2 class="accordion-header anchored" id="stepOne" data-anchor-id="how-to-plot-variable-distributions">
 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-Step 1: Inspect the variable of interest
+<p>Step 1: Inspect the variable of interest</p>
 </button>
 </h2>
 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="stepOne" data-bs-parent="#plotAccordion">
@@ -1269,7 +1287,7 @@ Step 1: Inspect the variable of interest
 <div class="accordion-item">
 <h2 class="accordion-header anchored" id="stepTwo">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-Step 2: Decision on Data Manipulation
+<p>Step 2: Decision on Data Manipulation</p>
 </button>
 </h2>
 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="stepTwo" data-bs-parent="#plotAccordion">
@@ -1281,7 +1299,7 @@ Step 2: Decision on Data Manipulation
 <div class="accordion-item">
 <h2 class="accordion-header anchored" id="stepThree">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-Step 3: Visualisation
+<p>Step 3: Visualisation</p>
 </button>
 </h2>
 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="stepThree" data-bs-parent="#plotAccordion">
@@ -1296,9 +1314,9 @@ Step 3: Visualisation
 </div>
 </div>
 </div>
-</section></section><section id="variable-distributions-exercise" class="level3" data-number="1.5.5"><h3 data-number="1.5.5" class="anchored" data-anchor-id="variable-distributions-exercise">
+</section></section><section id="variable-distributions-exercise" class="level3" data-number="1.5.5"><h3 data-number="1.5.5" class="anchored">
 <span class="header-section-number">1.5.5</span> Variable Distributions Exercise</h3>
-<section id="exercise-part-1" class="level4" data-number="1.5.5.1"><h4 data-number="1.5.5.1" class="anchored" data-anchor-id="exercise-part-1">
+<section id="exercise-part-1" class="level4" data-number="1.5.5.1"><h4 data-number="1.5.5.1" class="anchored">
 <span class="header-section-number">1.5.5.1</span> Exercise Part 1</h4>
 <p>In this exercise, we will compare the distributions of <strong>“safe”</strong> variables with potentially <strong>sensitive</strong> ones. Take 10-15 minutes and attempt the following exercise:</p>
 <ul>
@@ -1315,11 +1333,11 @@ Step 3: Visualisation
 </li>
 <li>Make a histogram of imwbcnt (“immigrants make country worse [0] or better [10]”)</li>
 <li>Are there any spikes at socially desirable values?</li>
-<li>Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask:
+<li>
+<h2 id="finally-let-us-apply-the-four-conditions-framework-from-the-lecture-i.e.-for-each-variable-ask" data-number="1.6" class="anchored" data-anchor-id="exercise-part-1">
+<span class="header-section-number">1.6</span> Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask:</h2>
+<pre><code>(1) Is there a social referent?</code></pre>
 <ul>
-<li><ol type="1">
-<li>Is there a social referent?</li>
-</ol></li>
 <li><ol start="2" type="1">
 <li>Can they learn the answer?</li>
 </ol></li>
@@ -1332,11 +1350,11 @@ Step 3: Visualisation
 </ul>
 </li>
 <li>Finally, using the four-conditions framework, let us discuss which variables are likely affected by social desirability? What does a suspicious distribution look like? (heaping at midpoint, avoidance of extreme positions, missing data patterns)</li>
-</ul></section><section id="exercise-part-2" class="level4" data-number="1.5.5.2"><h4 data-number="1.5.5.2" class="anchored" data-anchor-id="exercise-part-2">
-<span class="header-section-number">1.5.5.2</span> Exercise Part 2</h4>
+</ul></section><section id="exercise-part-2" class="level4" data-number="1.6.0.1"><h4 data-number="1.6.0.1" class="anchored" data-anchor-id="exercise-part-2">
+<span class="header-section-number">1.6.0.1</span> Exercise Part 2</h4>
 <p>Great job! You have made it to the final section! Here, we will try to see if there are any differences based on the country and what they might mean. To look at different countries together, we are going to use the popular visualization method in R: <strong>Faceting</strong>. To create facets, we use the command <code>facet_wrap(~variable)</code>. Here the <code>~</code> tell us what variable we would like to facet. We will look more into faceting during the visualization session! For now, facets help us plot the data into different panels by splitting it based on the the variable of interest. In our case, we need to run the following command:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">ESS_Subset</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">imwbcnt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">ESS_Subset</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">imwbcnt</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">cntry</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1361,24 +1379,26 @@ Step 3: Visualisation
 <div class="col-sm-6">
 <div class="card border-primary mb-3" style="max-width: 30rem;">
 <div class="card-header">
-In-Class Task
+<p>In-Class Task</p>
 </div>
 <div class="card-body text-primary">
 <p class="card-text">
-T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Commands ✅ <br> T3: Plotting Variable Distributions ✅<br> T4: Cross Country and Mode Comparision ✅
 </p>
+<p>T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Commands ✅ <br> T3: Plotting Variable Distributions ✅<br> T4: Cross Country and Mode Comparision ✅</p>
+
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="card border-primary mb-3" style="max-width: 30rem;">
 <div class="card-header">
-Independent Work
+<p>Independent Work</p>
 </div>
 <div class="card-body text-primary">
 <p class="card-text">
-IT1: How does T3 change based on other variables available <br> IT2: Survey Time and Sensitive Questions <br> IT3: Demographic, Country, Mode and Time Based Differences
 </p>
+<p>IT1: How does T3 change based on other variables available <br> IT2: Survey Time and Sensitive Questions <br> IT3: Demographic, Country, Mode and Time Based Differences</p>
+
 </div>
 </div>
 </div>

@@ -2,234 +2,254 @@
 
 ## Recap
 
-Last week we covered the following: 
+Last week we covered the following:
 
-<div class="row">
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">Exercise 1 Tasks</div>
-<div class="card-body text-primary">
+::::::: row
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Exercise 1 Tasks
+:::
+
+::: {.card-body .text-primary}
 <p class="card-text">
-T1: Downloading and Loading ESS Subset on R. ✅<br>
-T2: Introduction to Key Commands ✅ <br>
-T3: Plotting Variable Distributions <br>
-T4: Cross Country and Mode Comparision  
+
+T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Commands ✅ <br> T3: Plotting Variable Distributions <br> T4: Cross Country and Mode Comparision
+
 </p>
-</div>
-</div>
-</div>
-</div>
+:::
+:::::
+::::::
+:::::::
 
-Before continuing from where we left in the Exercise 1, let us have a quick recap exercise! 
+Before continuing from where we left in the Exercise 1, let us have a quick recap exercise!
 
-<div class="accordion" id="essExerciseAccordion">
-
-<div class="accordion-item">
+:::::::::::: {#essExerciseAccordion .accordion}
+::::: accordion-item
 <h2 class="accordion-header" id="stepOne">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+
 Task 1.1: Downloading and Loading Data
+
 </button>
+
 </h2>
-<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="stepOne" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
-Go to the <a href="https://ess.sikt.no/en/data-builder/" target="_blank">ESS Data Builder</a>, select <b>Round 11</b>, select <b>any 2 countries</b>, and <b>any 5 variables</b> (what ever you find interesting!). Check how they are stored on the <a href="https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef" target="_blank">ESS variable guide</a> and also look at the graphs. Download the data and load it into R. 
 
-It should look something like this (But let us try writing the code without the hint first!): 
-<br><br>
-<code>library(__________)</code><br>
-<code>library(__________)</code><br>
-<code>ASSIGN_A_NAME <- read____("path to file")</code><br>
-<code>ANOTHER_NAME <- c(____)</code><br>
-<code>ASSIGN_A_NAME <- set____________(ASSIGN_A_NAME, .labels = ________)</code>
-</div>
-</div>
-</div>
+:::: {#collapseOne .accordion-collapse .collapse aria-labelledby="stepOne" data-bs-parent="#essExerciseAccordion"}
+::: accordion-body
+Go to the <a href="https://ess.sikt.no/en/data-builder/" target="_blank">ESS Data Builder</a>, select <b>Round 11</b>, select <b>any 2 countries</b>, and <b>any 5 variables</b> (what ever you find interesting!). Check how they are stored on the <a href="https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef" target="_blank">ESS variable guide</a> and also look at the graphs. Download the data and load it into R.
 
-<div class="accordion-item">
+It should look something like this (But let us try writing the code without the hint first!): <br><br> <code>library(\_\_\_\_\_\_\_\_\_\_)</code><br> <code>library(\_\_\_\_\_\_\_\_\_\_)</code><br> <code>ASSIGN_A_NAME \<- read\_***("path to file")***</code><br> <code>ANOTHER_NAME \<- c(\_)</code><br> <code>ASSIGN_A_NAME \<- set\_\_\_\_\_\_\_\_\_\_\_\_(ASSIGN_A_NAME, .labels = \_\_\_\_\_\_\_\_)</code>
+:::
+::::
+:::::
+
+::::: accordion-item
 <h2 class="accordion-header" id="stepTwo">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
 Task 1.2: Viewing and Exploring the Dataset
-</button>
-</h2>
-<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="stepTwo" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
-Use these commands to understand the data you just downloaded. It is <b>very important</b> to check the variable types and dimensions:
-<br><br>
-<code>view(data)</code>: Opens full data in another tab.<br>
-<code>glimpse(data)</code>: Dimensions, column names, and datatypes.<br>
-<code>head(data)</code>: Shows top rows.<br>
-<code>tail(data)</code>: Shows bottom rows.<br>
-<code>dim(data)</code>: Shows row and column count.<br>
-<code>colnames(data)</code>: Lists all column names.
-</div>
-</div>
-</div>
 
-<div class="accordion-item">
+</button>
+
+</h2>
+
+:::: {#collapseTwo .accordion-collapse .collapse aria-labelledby="stepTwo" data-bs-parent="#essExerciseAccordion"}
+::: accordion-body
+Use these commands to understand the data you just downloaded. It is <b>very important</b> to check the variable types and dimensions: <br><br> <code>view(data)</code>: Opens full data in another tab.<br> <code>glimpse(data)</code>: Dimensions, column names, and datatypes.<br> <code>head(data)</code>: Shows top rows.<br> <code>tail(data)</code>: Shows bottom rows.<br> <code>dim(data)</code>: Shows row and column count.<br> <code>colnames(data)</code>: Lists all column names.
+:::
+::::
+:::::
+
+::::: accordion-item
 <h2 class="accordion-header" id="stepFour">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+
 Task 1.3: Single Column Calculation
+
 </button>
+
 </h2>
-<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="stepFour" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
-Do you remember how to select a column in R? Which **sign** should we use? Take one numeric column from your dataset and check its mean! 
-<br><br>
-<code>mean()</code>
-</div>
-</div>
-</div>
 
-</div>
+:::: {#collapseFour .accordion-collapse .collapse aria-labelledby="stepFour" data-bs-parent="#essExerciseAccordion"}
+::: accordion-body
+Do you remember how to select a column in R? Which **sign** should we use? Take one numeric column from your dataset and check its mean! <br><br> <code>mean()</code>
+:::
+::::
+:::::
+::::::::::::
+
 <br>
-
 
 Let us go back to Exercise 1 now!
 
-## Task List + Independant Work 
-<div class="row">
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">In-Class Task</div>
-<div class="card-body text-primary">
-<p class="card-text">
-T1: Finishing Recap and Exercise 1<br>
-T2: Splitting Variable of Choice <br>
-T3: Information Shortcut Task<br>
-T4: Constructed preferences
-</p>
-</div>
-</div>
-</div>
+## Task List + Independant Work
 
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">Independent Work</div>
-<div class="card-body text-primary">
+::::::::::: row
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+In-Class Task
+:::
+
+::: {.card-body .text-primary}
 <p class="card-text">
-IT1: Completing Independent Tasks from Week 1  <br>
-IT2: Testing all 3 Ways to Split a Column <br>
-IT3: Plotting New Distributions With/Without the Split
+
+T1: Finishing Recap and Exercise 1<br> T2: Splitting Variable of Choice <br> T3: Information Shortcut Task<br> T4: Constructed preferences
+
 </p>
-</div>
-</div>
-</div>
-</div>
+:::
+:::::
+::::::
+
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Independent Work
+:::
+
+::: {.card-body .text-primary}
+<p class="card-text">
+
+IT1: Completing Independent Tasks from Week 1 <br> IT2: Testing all 3 Ways to Split a Column <br> IT3: Plotting New Distributions With/Without the Split
+
+</p>
+:::
+:::::
+::::::
+:::::::::::
 
 ## Splitting Variables
 
-There are multiple ways to split a variable in R. Now that we know what ``$`` does, let us look at how to create new columns. To start of, let is create an empty column. 
+There are multiple ways to split a variable in R. Now that we know what `$` does, let us look at how to create new columns. To start of, let is create an empty column.
 
-
-To create an empty column, we will use this command: ``Dataframe_name$Name_of_new_column <- NA``. For example:
+To create an empty column, we will use this command: `Dataframe_name$Name_of_new_column <- NA`. For example:
 
 ```{r,echo=F, message=FALSE}
 library(readr)
 ESS_Subset <- read_csv("~/Downloads/ESS11e04_1-subset (2)/ESS11e04_1-subset.csv")
 ```
 
-
 ```{r}
 ESS_Subset$News_Split <- NA
 ```
 
-Check the ``ESS_Subset`` dataframe now! You should have an extra column ``News_Split`` at the end of the dataframe with all NA Values. 
+Check the `ESS_Subset` dataframe now! You should have an extra column `News_Split` at the end of the dataframe with all NA Values.
 
-
-We can also set to this to any value we would like, for example instead of ``NA``, we can have all the cells take the value of 0.
+We can also set to this to any value we would like, for example instead of `NA`, we can have all the cells take the value of 0.
 
 ```{r}
 ESS_Subset$News_Split <- 0
 ```
 
-<div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
-<div class="card-header">Question</div>
-<div class="card-body">
-<p class="card-text">What could be a use of first creating an empty column?</p>
-<p class="card-text">If we are using the ``if()`` statement in R to create columns, then any row which does not fill the criteria already has some logical value. It also helps with avoiding type conflicts.  </p>
-</div>
-</div>
+::::: {.card .text-white .bg-dark .mb-3 style="max-width: 50rem;"}
+::: card-header
+Question
+:::
 
-In today's class, we will look at three ways to split a column variable in R: 
+::: card-body
+<p class="card-text">
 
-<div class="accordion" id="essExerciseAccordion">
+What could be a use of first creating an empty column?
 
-<div class="accordion-item">
+</p>
+
+<p class="card-text">
+
+If we are using the `if()` statement in R to create columns, then any row which does not fill the criteria already has some logical value. It also helps with avoiding type conflicts.
+
+</p>
+:::
+:::::
+
+In today's class, we will look at three ways to split a column variable in R:
+
+:::::::::::::::: {#essExerciseAccordion .accordion}
+:::::::: accordion-item
 <h2 class="accordion-header" id="stepOne1">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1">
-Method 1: Using  ``ifelse()``
+
+Method 1: Using `ifelse()`
+
 </button>
+
 </h2>
-<div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="stepOne1" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
-The ``ifelse()`` function is the quick way to split data. It can get quite messy in many cases. It works by evaluating a logical condition and returning one value if TRUE and another if FALSE. To handle multiple splits, you will have to "nest" the functions. 
 
-<div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
-<div class="card-header">Tip!</div>
-<div class="card-body">
-<p class="card-text">In R, nesting an ifelse() simply means putting a second ifelse() statement inside the "else" (false) slot of the first one.</p>
+::::::: {#collapseOne1 .accordion-collapse .collapse aria-labelledby="stepOne1" data-bs-parent="#essExerciseAccordion"}
+:::::: accordion-body
+The `ifelse()` function is the quick way to split data. It can get quite messy in many cases. It works by evaluating a logical condition and returning one value if TRUE and another if FALSE. To handle multiple splits, you will have to "nest" the functions.
 
-The standard syntax for a single ``ifelse()`` is:
-``ifelse(condition, value_if_true, value_if_false)``
+::::: {.card .text-white .bg-primary .mb-3 style="max-width: 50rem;"}
+::: card-header
+Tip!
+:::
 
-To nest it, you replace value_if_false with a brand new ``ifelse()``:
-``ifelse(condition1, value1, ifelse(condition2, value2, value3))``
+::: card-body
+<p class="card-text">
 
+In R, nesting an ifelse() simply means putting a second ifelse() statement inside the "else" (false) slot of the first one.
 
+</p>
 
-</div>
-</div>
+The standard syntax for a single `ifelse()` is: `ifelse(condition, value_if_true, value_if_false)`
 
-**How can be use this command to split one of our columns?** Give it a try! Try splitting into 2 factors and 3 factors. 
-</div>
-</div>
-</div>
+To nest it, you replace value_if_false with a brand new `ifelse()`: `ifelse(condition1, value1, ifelse(condition2, value2, value3))`
+:::
+:::::
 
-<div class="accordion-item">
+**How can be use this command to split one of our columns?** Give it a try! Try splitting into 2 factors and 3 factors.
+::::::
+:::::::
+::::::::
+
+:::::: accordion-item
 <h2 class="accordion-header" id="stepTwo2">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-Method 2: Tidyverse with ``mutate()`` and ``case_when()`` 
+
+Method 2: Tidyverse with `mutate()` and `case_when()`
+
 </button>
+
 </h2>
-<div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="stepTwo2" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
 
-Using tidyverse is cleaner and easy to read. ``case_when()`` is the cleaner, more powerful version of ``ifelse()``. It allows you to list multiple conditions sequentially without nesting! 
+::::: {#collapseTwo2 .accordion-collapse .collapse aria-labelledby="stepTwo2" data-bs-parent="#essExerciseAccordion"}
+:::: accordion-body
+Using tidyverse is cleaner and easy to read. `case_when()` is the cleaner, more powerful version of `ifelse()`. It allows you to list multiple conditions sequentially without nesting!
 
-Here is an example: 
-<img src="tidyverse_split.png" alt="Tidyverse Splitting" style="max-width:100%;">
+Here is an example: <img src="tidyverse_split.png" alt="Tidyverse Splitting" style="max-width:100%;"/>
 
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  Can you spot a possible mistake in this code snipped?
-</div>
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button> Can you spot a possible mistake in this code snipped?
+:::
+::::
+:::::
+::::::
 
-
-</div>
-</div>
-</div>
-
-<div class="accordion-item">
+::::: accordion-item
 <h2 class="accordion-header" id="stepFour3">
+
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour4" aria-expanded="false" aria-controls="collapseFour4">
-Method 3: Using ``cut()``
+
+Method 3: Using `cut()`
+
 </button>
+
 </h2>
-<div id="collapseFour4" class="accordion-collapse collapse" aria-labelledby="stepFour3" data-bs-parent="#essExerciseAccordion">
-<div class="accordion-body">
 
-The ``cut()`` function is specifically designed for converting numeric vectors into factors by cutting them into intervals. This is often the best way to split the data which is separated into equal/unequal but consistant intervals. 
+:::: {#collapseFour4 .accordion-collapse .collapse aria-labelledby="stepFour3" data-bs-parent="#essExerciseAccordion"}
+::: accordion-body
+The `cut()` function is specifically designed for converting numeric vectors into factors by cutting them into intervals. This is often the best way to split the data which is separated into equal/unequal but consistant intervals.
 
-Here is an example: 
-<img src="tidyverse2.png" alt="using cut()" style="max-width:100%;">
-
-
-
-</div>
-</div>
-</div>
-
-</div>
+Here is an example: <img src="tidyverse2.png" alt="using cut()" style="max-width:100%;"/>
+:::
+::::
+:::::
+::::::::::::::::
 
 <br>
 
@@ -237,114 +257,108 @@ Based on this, let us attempt the first task for this week:
 
 **Tasks**:
 
-1. Load the ESS subset from last week
+1.  Load the ESS subset from last week
 
-2. Create a variable for political knowledge or news consumption (`nwspol`) — split into high/low
+2.  Create a variable for political knowledge or news consumption (`nwspol`) — split into high/low
 
-3. Compare policy preferences (e.g., redistribution, immigration) between high- and low-information respondents
+3.  Compare policy preferences (e.g., redistribution, immigration) between high- and low-information respondents
 
-4. `ggplot(ess, aes(x = imwbcnt, fill = news_group)) + geom_density(alpha = 0.5)`
+4.  `ggplot(ess, aes(x = imwbcnt, fill = news_group)) + geom_density(alpha = 0.5)`
 
 **Discussion questions**:
 
-- Are high- and low-information respondents very different? Or surprisingly similar?
+-   Are high- and low-information respondents very different? Or surprisingly similar?
 
-- If they're similar, what does that imply about shortcuts?
+-   If they're similar, what does that imply about shortcuts?
 
-- If they're different, is information the cause or is something else (education, income) driving both? 
+-   If they're different, is information the cause or is something else (education, income) driving both?
 
-## Task Update 
+## Task Update
 
-We are now done with the following: 
+We are now done with the following:
 
-<div class="row">
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">Exercise 1 Tasks</div>
-<div class="card-body text-primary">
+:::::::::::: row
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Exercise 1 Tasks
+:::
+
+::: {.card-body .text-primary}
 <p class="card-text">
-T1: Downloading and Loading ESS Subset on R. ✅<br>
-T2: Introduction to Key Commands ✅ <br>
-T3: Plotting Variable Distributions ✅  <br>
-T4: Cross Country and Mode Comparision ✅   
+
+T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Commands ✅ <br> T3: Plotting Variable Distributions ✅ <br> T4: Cross Country and Mode Comparision ✅
+
 </p>
-</div>
-</div>
-</div>
+:::
+:::::
+::::::
 
+::::::: row
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Exercise 2 Tasks
+:::
 
-<div class="row">
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">Exercise 2 Tasks</div>
-<div class="card-body text-primary">
+::: {.card-body .text-primary}
 <p class="card-text">
-T1: Finishing Recap and Exercise 1 ✅<br>
-T2: Splitting Variable of Choice ✅<br>
-T3: Information Shortcut Task ✅<br>
-T4: Constructed preferences 
+
+T1: Finishing Recap and Exercise 1 ✅<br> T2: Splitting Variable of Choice ✅<br> T3: Information Shortcut Task ✅<br> T4: Constructed preferences
+
 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
+:::
+:::::
+::::::
+:::::::
+::::::::::::
 
-Let us move to the final exercise task! 
+Let us move to the final exercise task!
 
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  <strong>Wait!</strong> Let us pause here and ask any questions if something is unclear.
-</div>
-
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> Let us pause here and ask any questions if something is unclear.
+:::
 
 ## Constructed preferences
 
 **Tasks**:
 
-1. Find two ESS items that measure "the same thing" differently. For example, immigration measured as economic impact (`imbgeco`) vs. cultural impact (`imueclt`) vs. general ("make country better/worse" `imwbcnt`)
+1.  Find two ESS items that measure "the same thing" differently. For example, immigration measured as economic impact (`imbgeco`) vs. cultural impact (`imueclt`) vs. general ("make country better/worse" `imwbcnt`)
 
-2. Correlate them: `cor(col1, col2)`
+2.  Correlate them: `cor(col1, col2)`
 
-3. Are they as correlated as you'd expect? Make a scatter plot.
+3.  Are they as correlated as you'd expect? Make a scatter plot.
 
-<div class="alert alert-dismissible alert-danger">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  <strong>We will do this task together! Let us discuss how to go about this in R!</strong>
-</div>
-
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>We will do this task together! Let us discuss how to go about this in R!</strong>
+:::
 
 **Discussion**:
 
-- If these all measure "immigration attitudes," why aren't they perfectly correlated?
+-   If these all measure "immigration attitudes," why aren't they perfectly correlated?
 
-- This connects back to Session 2 (Blankenberg, Bosshard): convergent validity failures
+-   This connects back to Session 2 (Blankenberg, Bosshard): convergent validity failures
 
-- The way you frame the question shapes the answer
+-   The way you frame the question shapes the answer
 
-## Independant Tasks 
+## Independant Tasks
 
-Now, we can try the independent tasks for W1 and W2! I will also send an exercise email with the practice question as practicing is very important whenever learning a new programming language! 
+Now, we can try the independent tasks for W1 and W2! I will also send an exercise email with the practice question as practicing is very important whenever learning a new programming language!
 
-<div class="col-sm-6">
-<div class="card border-primary mb-3" style="max-width: 30rem;">
-<div class="card-header">Independent Work</div>
-<div class="card-body text-primary">
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Independent Work
+:::
+
+::: {.card-body .text-primary}
 <p class="card-text">
-IT1: How does T3 change based on other variables available  <br>
-IT2: Survey Time and Sensitive Questions <br>
-IT3: Demographic, Country, Mode and Time Based Differences  <br>
-IT4: Testing all 3 Ways to Split a Column  <br>
-IT5: Plotting New Distributions With/Without the Split <br>
-IT6: Working on Exercise send via Moodle
+
+IT1: How does T3 change based on other variables available <br> IT2: Survey Time and Sensitive Questions <br> IT3: Demographic, Country, Mode and Time Based Differences <br> IT4: Testing all 3 Ways to Split a Column <br> IT5: Plotting New Distributions With/Without the Split <br> IT6: Working on Exercise send via Moodle
+
 </p>
+:::
+:::::
+::::::
+
 </div>
-</div>
-</div>
-</div>
-
-
-
-
-
-

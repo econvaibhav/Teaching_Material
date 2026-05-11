@@ -1,0 +1,28 @@
+# Exercise 3
+
+## Recap
+
+In the first and second R sessions, we covered the following:
+
+::::::: row
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
+::: card-header
+Exercise 1 and 2 Tasks
+:::
+
+::: {.card-body .text-primary}
+<p class="card-text">
+
+T1: Downloading and Loading ESS Subset on R. ✅<br> 
+T2: Introduction to Key Commands ✅ <br> 
+T3: Plotting Variable Distributions ✅<br> 
+T4: Cross Country and Mode Comparision ✅<br>
+T5: Splitting Variable of Choice ✅ 
+</p>
+:::
+:::::
+::::::
+:::::::
+
+For this exercise, we have some R cheat sheets and a BINGO! But first, a recap exercise, so we do not forget what we did in the last wo weeks. 
