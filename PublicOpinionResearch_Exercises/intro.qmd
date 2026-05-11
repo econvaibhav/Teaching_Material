@@ -1,0 +1,607 @@
+# Exercise 1
+
+## Learning Note 
+
+When I was learning programming, my teacher said: 
+
+> **"First, be a confident programmer, then an excellent one!"**
+
+The goal of these exercise sessions is exactly that: making sure you feel **confident** taking any dataset and knowing how to start. We aren't aiming for perfection/full understanding today or next week; the goal is to learn slowly and become confident in R over the next three months!
+
+
+**Let's start!**
+
+## Quick Exercise
+Open your console and *write any two lines of code and run them!* 
+
+<details>
+<summary>**Here is what I would have written**</summary>
+
+```{r}
+1+1
+print("Hello World")
+```
+
+</details>
+
+R is a high-level programming language. Lets understand what this mean using some line of code: Can you guess what these line of code mean? 
+
+```{r,eval=FALSE}
+mean(c(1,2,3,4))
+tolower("FIRST R EXERCISE CLASS!")
+round(3.14159)
+
+my_data <- read_csv("class_survey.csv")
+head(my_data)
+tail(my_data)
+nrow(my_data)
+
+```
+
+## How to use R
+
+### Installation
+
+To start working in R, you need two things: "R" and the "interface" (RStudio). 
+
+- Download and Install: Go to the official Posit website to find the installers for your operating system: [**Download R and RStudio Desktop**](https://posit.co/download/rstudio-desktop/)
+
+- Click on "Download and Install R" first. This is the actual programming language. Once R is installed, click "Install RStudio." and choose the correct version depending on your device. 
+
+- Always open **RStudio** to start working 
+
+- Try running a few commands like ``print("hello world")`` or ``1+1``
+
+---
+
+### R UI 
+
+Here is how to understand the UI of R Studio and why each part is helpful: 
+
+* **<u>R Console</u>**: 
+The R Console is the place where you can type and run R code immediately. When you write something in the console and press Enter, R runs that code right away and shows the result. However, the console **doesn’t save your code for later use**, so if closed it will be lost. 
+
+* **<u>R Files (.R, .Rmd)</u>**: 
+R Markdown (.Rmd) is like a notebook. It allows you to both write and save both your R code and comments (using "**#**"). You can run your code, see the results, and then save everything. It will be available when you restart working. 
+
+* **<u>Environment</u>**: 
+The Environment tab is your storage space. It keeps track of every variable, dataset, or object you have created during your session. If it isn't in the environment, R doesn't "know" it exists. You can clean this broom in the top-middle bar. You can also click on the downward arrow in list (top-right), select grid and selectively clean. 
+
+* **<u>Files, Plots, and Packages</u>**: 
+This pane is your multi-tool. The **Files** tab shows your computer's folders, **Plots** is where your graphs will appear, and the **Packages** tab shows you the tools currently installed on your system. Basically a results tab
+
+![RStudio UI](Rmap.png){fig-align="center"}
+
+---
+
+### R Markdown
+
+- A **code chunk** is a special section (with a gray background) where you write and run R code. 
+
+- **Normal Space**: Here is where you write plain text and also explain your work. You cannot execute code here
+
+- **Inside the Chunk**: Write your R code here. R can only execute what is inside these blocks.
+
+Add a code chunk by clicking the **+C** button in the toolbar. Shortcut `Ctrl + Alt + I` (Windows) or `Cmd + Option + I` (Mac).
+
+---
+
+### 3. Running Code
+
+To see your results, you need to "run" the code using one of these methods:
+
+* **Run a whole chunk**: Click the **green play arrow** ($\blacktriangleright$) at the top right corner of the chunk.
+* **Run line-by-line**: Place your cursor on a specific line and press **<u>`Ctrl + Enter`</u>** (Windows) or **<u>`Cmd + Enter`</u>** (Mac).
+
+![R Code Chunk](Rcodechunk.png){fig-align="center"}
+
+---
+
+### Installation vs. Loading Libraries
+
+* **Installing a package (`install.packages("package_name")`)**:
+This is like downloading an app on your phone, you **only need to do this once** (unless you update the package or reinstall R). This downloads the package from a repository and saves it on your computer.
+
+* **Loading a package (`library(package_name)`)**:
+This is like **opening a app**. Even though you’ve installed the package, you still need to load it into your current R session to be able to use its functions. This line of code needs to be run **everytime** you start a new session. 
+
+---
+
+## ESS Data
+
+For the first exercise class, we will be looking at ESS data. Here is a link to the ["European Social Survey" homepage](https://www.europeansocialsurvey.org/). The European Social Survey (ESS) provides high-quality open access data measuring public attitudes, beliefs and behaviour. 
+
+You can read about the survey methodology, resources and news on ESS, on the link shared above. To check for different rounds of the ESS, data access, how data was collected for your country of interest, i.e., survey sampling strategy, refer to this link: [ESS Data](https://ess.sikt.no/en/series/321b06ad-1b98-4b7d-93ad-ca8a24e8788a) (This includes information for all ESS rounds).
+
+For more information of ESS Round 11, 2023, refer to this link: [ESS11](https://ess.sikt.no/en/study/412db4fe-c77a-4e98-8ea4-6c19007f551b/). For information on country documentation, click on the "Country Documentation" drop-down. 
+
+
+For documentation on all the variables used in ESS Round 11, refer to this link [Variable Documentation](https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef)
+
+For example, here is how the sampling procedure looked like in Germany: ![Germany Sampling Procedure](Germany.png)
+
+
+### Downloading ESS Subset
+
+You can download the entire ESS Round 11 Dataset on this page [ESS Round 11 Download](https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef); However, it would be hard to comprehend and start working with it immediately. 
+
+For the purpose of this exercise, we will <u>**work only with a smaller subset of the ESS data**</u>. The goal is to be able to process and visualize this data and then work with larger subsets/multiple rounds later during this course! For this, will be using the "ESS Data Portal", which allows us to build our own costum dataset! [Link to Data Portal](https://ess.sikt.no/en/data-builder/). 
+
+**Please follow the following instructions to make the dataset replicable for this exercise (Alternatively, you can also download the data from Moodle or use this [link](https://ess.sikt.no/en/data-builder/?rounds=11.11_13_34&seriesVersion=974&tab=variables&variables=0.3+1.0.30_40_59_61_71-73+3.1_87+4.0.38+7.0_10-13) with pre-selected values and understand the ESS download procedure later)**:
+
+
+  
+- Under Round 11, select **"Germany, Sweden and Hungary"**; click **"Next Step"**
+- Select the following variables:
+    - **Demographics**
+        - Age (use <span style="color:green">**<u>agea</u>**</span>, based on the variable documentation: agea -- Age of respondent, calculated); located in <span style="color:blue">"Gender, age and household composition 1/89"</span>
+        - Gender (use <span style="color:green">**<u>gndr</u>**</span>); located in <span style="color:blue">"Gender, age and household composition 2/89"</span>
+        - Education (use <span style="color:green">**<u>eduyrs</u>**</span>, based on the variable documentation: eduyrs -- Years of full-time education completed); located in <span style="color:blue">"Socio-demographic profile 1/627" -> "ESS standard variables 1/153"</span>
+        - Country (<span style="color:green">**<u>cntry</u>**</span>): Identifier variable, downloads automatically 
+    - **Non sensitive Questions:**
+        - How interested in politics (<span style="color:green">**<u>polintr</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - News Consumption (<span style="color:green">**<u>nwspol</u>**</span>: News about politics and current affairs, watching, reading or listening, in minutes); located at <span style="color:blue">"Media and trust 1/13"</span>
+    - **Sensitive Questions:** 
+        - Immigrants make country worse or better place to live (<span style="color:green">**<u>imwbcnt</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - Country's cultural life undermined or enriched by immigrants (<span style="color:green">**<u>imueclt</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - Immigration bad or good for country's economy (<span style="color:green">**<u>imbgeco</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - Trust in Police (<span style="color:green">**<u>trstplc</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - Trust in Parliament (<span style="color:green">**<u>trstprl</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+        - Placement on left right scale (<span style="color:green">**<u>lrscale</u>**</span>); located at <span style="color:blue">"Politics 1/615" -> "ESS standard variables"</span>
+    - **Survey Mode** (<span style="color:green">**<u>mode</u>**</span> -- Mode of data collection) 
+        - Interview length in minutes, main questionnaire (<span style="color:green">**<u>inwtm</u>**</span>); located at <span style="color:blue">"Administrative variables 1/49"</span>
+        - Interview time spend in section B (Politics, sensitive questions: <span style="color:green">**<u>inwds, ainws, ainwe, binwe</u>**</span>); located at <span style="color:blue">"Administrative variables 1/49"</span>
+- Click **"Summarize and download"**
+- **Login and Download**
+
+
+Now that we have the data, let us look at the remaining tasks for the Exercise Class! 
+
+## Task List + Independant Work 
+<div class="row">
+<div class="col-sm-6">
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+<div class="card-header">In-Class Task</div>
+<div class="card-body text-primary">
+<p class="card-text">
+T1: Downloading and Loading ESS Subset on R.<br>
+T2: Introduction to Key Commands <br>
+T3: Plotting Variable Distributions <br>
+T4: Cross Country and Mode Comparision 
+</p>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+<div class="card-header">Independent Work</div>
+<div class="card-body text-primary">
+<p class="card-text">
+IT1: How does T3 change based on other variables available  <br>
+IT2: Survey Time and Sensitive Questions <br>
+IT3: Demographic, Country, Mode and Time Based Differences
+</p>
+</div>
+</div>
+</div>
+</div>
+
+### Loading Subset in R (T1)
+
+Let us start with loading the required libraries, so the execution goes smoothly in the future. There are many, many, interesting libraries in R but, for now we will start will only two: `library(readr)` and `library(tidyverse)`. As the course progresses, we will work with plenty of new libraries and also look at aesthetics of graphs and libraries to increase efficiency. 
+
+``conflict_scout()`` from the ``library(conflicted)`` is also a helpful R package, which helps navigate possible conflicts in the future, as it is a very common R error. This error arises due to the same function being referenced from two different packages. For now, we don't need to worry about this but, always good to have! 
+
+```{r}
+library(readr)
+library(tidyverse)
+library(conflicted)
+conflict_scout()
+```
+
+
+After running the conflict_scout() command, we can see that there are 2 possible conflicts. These are not of interest to us, however, we will be using the ``dplyr::filter`` functions often which conflict with other packages. We can set our preference to the dplyr options, to avoid conflict.
+
+```{r}
+conflicts_prefer(dplyr::filter)
+```
+
+
+
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Wait!</strong> Let us look at this carefully and ask any questions if something is unclear. I will explain the code and results. 
+</div>
+
+
+
+---
+
+
+We will now be loading the dataset. The command to load a dataset depends on its extension. For example is it a ".csv", ".xlxs", ".dta" etc. In our case, it is a **".csv"**, so we will be using the command ``read_csv()``. We can call this file "ESS_Subset" and save it in the environment. Here is the code for that:
+
+```{r}
+ESS_Subset <- read_csv("Data/ESS_Subset.csv") # Add your own local path here. 
+```
+
+Great! We have now loaded the dataset! Task 1 is complete! 
+
+To view the contents of the dataset, you can click on the "blue play button" ($\blacktriangleright$) in the environment for quick view, the text (ESS_Survey) for view in new tab or, use this command: 
+
+```{r}
+view(ESS_Subset)
+```
+
+![View the Data](ViewData.png)
+
+---
+
+### Data Preparation (T1 -> T2)
+
+Lets move on to the **"Data Preparation"** step. This is not a requirement; however, in many cases it helps understand the data better, i.e., the columns in the data, how they are stored, what they are called and, much more. In my experience, I always help me feel comfortable with the data and gain familiarity. 
+
+We will look how to understand "how our data looks like" using some quick important commands in the next section but, this will help us build familiarity with the data. I will start by renaming all columns. This can be done using the ``colnames()`` function. Everytime we work with lists of items, it is important to put them inside ``c()``. This stands for vector in R. In many cases it helpful to rename the columns as well (for example, changing dweight to something like design_weight but since they are quite clean and ESS standard, this is to only help us look and understand the data). Here is how the code looks like:  
+
+```{r}
+colnames(ESS_Subset) <- c(
+  "name",
+  "essround",
+  "edition",
+  "proddate",
+  "idno",
+  "cntry",
+  "dweight",
+  "pspwght",
+  "pweight",
+  "anweight",
+  "nwspol",
+  "polintr",
+  "trstprl",  
+  "trstplc",
+  "lrscale",
+  "imbgeco",
+  "imueclt",
+  "imwbcnt",
+  "gndr",
+  "agea",
+  "eduyrs",
+  "inwds",
+  "ainws",
+  "ainwe",
+  "binwe",    
+  "inwtm",    
+  "prob",
+  "stratum",
+  "psu"   
+)
+```
+
+
+<div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+<div class="card-header">Tip!</div>
+<div class="card-body">
+<p class="card-text">Tip: You can click "Show in New Window" to open the data in another window and look at both, the variables and the .Rmd/.R file. ![View the Data](ViewData2.png)</p>
+</div>
+</div>
+
+<div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+<div class="card-header">Question</div>
+<div class="card-body">
+<p class="card-text">What is ``c()`` and why do we use it? </p>
+<p class="card-text">``c()`` is used to create a **vector**, a type of data structure in R. The ``c()`` stands for combine and it does exactly that. It is helpful when working with other commands and storing common value, for example, test scores in a class. The values inside ``c()`` can be manupilated together, for example, dividing everything by 2, finding the mean and much more! </p>
+</div>
+</div>
+
+
+
+While looking at the columns, which are stored based on the question number, it is also helpful to add the labels which correspond to the actual question/meta-data in the survey for clarity in the future. This also helps with gaining familiarity with the dataset. We will do this by first running ``install.packages("labelled")`` to install the ``labelled`` library and then loading the library using ``library(labelled)``. We will be using the function ``set_variable_labels()``
+
+```{r}
+library(labelled)
+
+labels <- c(
+  name = "Name",
+  essround = "ESS Round",
+  edition = "Edition",
+  proddate = "Production Date",
+  idno = "ID Number",
+  cntry = "Country",
+  dweight = "Design Weight",
+  pspwght = "Post Stratification Weight",
+  pweight = "Population Weight",
+  anweight = "Analysis Weight",
+  nwspol = "News Consumption",
+  polintr = "Political Interest",
+  trstprl = "Trust in Parliament",
+  trstplc = "Trust in Police",
+  lrscale = "Left Right Scale",
+  imbgeco = "Immigration: Good or Bad for Economy",
+  imueclt = "Immigration: Cultural Life",
+  imwbcnt = "Immigration: Worse or Better for Country",
+  gndr = "Gender",
+  agea = "Age",
+  eduyrs = "Years of Education",
+  inwds = "Interview Start Time",
+  ainws = "Section A Start Time",
+  ainwe = "Section A End Time",
+  binwe = "Section B End Time",
+  inwtm = "Interview Length (Minutes)",
+  prob = "Sampling Probability",
+  stratum = "Stratum",
+  psu = "Primary Sampling Unit (PSU)"
+)
+
+ESS_Subset <- set_variable_labels(ESS_Subset, .labels = labels)
+  
+```
+
+The dataset would then look something like this, helping with future navigation: 
+![Dataset with added labels](labels.png)
+
+<div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+<div class="card-header">Tip!</div>
+<div class="card-body">
+<p class="card-text">It is also worth noting that some columns have names (questions in the survey), which are quite long and hence, it is possible to add ``\n`` to the labels to ensure whenever they are printed they don’t go beyond the page/graph borders.</p>
+<p> The ``rm()`` command stands for remove and it is used to remove objects (data, vectors, graphs, functions etc.) from the current environment to have a cleaner environment and remove objects which are not of use to us. </p>
+</div>
+</div>
+
+
+
+### Important Commands (T2)
+
+#### Quick Summaries
+
+Here, we are not printing all the data summaries, but you can try them!
+
+* `view(data)` helps view full data in another tab
+
+* `glimpse(data)` provides the dimensions of the data, column names, what the values are coded as and the variable type (Giving a glimpse of the data). It is very Important to check which datatype is used and if it needs any conversion (But we will cover this in more detail in the coming weeks).
+
+* `head(data)` shows the top ‘X’ rows
+
+* `tail(data)` shows the bottom ‘Y’ rows
+
+* `dim(data)` shows the dimension of the data (row * column)
+
+* `colnames(data)` This is very useful as it gives a glance at the names of all the columns in or dataframe.
+
+* `get_variable_labels(data)` if labels are added to the data, this command is very helpful as it shows the column names alongside the labels for each column.
+
+* `skim(data)` very helpful as it provides everything provided by the `glimpse()` function alongside missing values, unique values as well as, whitespace if character type and histogram if numeric/factor.
+
+Let us them all! 
+
+```{r}
+
+# view(data) We have already tried this
+glimpse(ESS_Subset)
+head(ESS_Subset,3)
+tail(ESS_Subset,3)
+dim(ESS_Subset)
+# colnames(ESS_Subset) We have already tried this too
+# get_variable_labels(ESS_Subset) Will show us the labels we created in the previous section
+```
+
+If you would like to try more fancy summary libraries, you can test ``library(skimr)``:
+
+```{r}
+library(skimr)
+skim(ESS_Subset) # This uses library(skimr); install using install.packages("skimr")
+```
+
+
+
+#### Cross Tabs
+
+Next lets look at the ``$`` sign. In R, we use, for example,  `ESS_Subset$variable_name` to access the column "variable_name". Try running: `ESS_Subset$nwspol`, we get a list of all the survey values in the column "nwspol" (How much ever R is defaulted to print). This is a very helpful and one of the most frequently used operators in R. This is because most basic R functions don't look at the whole dataset at once, rather they want a specific list of values. The `$` tells R exactly which column to "access" to perform a calculation.
+
+Here are some examples where it can be used (lets use the "polintr" variable in all cases): 
+
+Beyond `table()` and `mean()`, here are other essential ways you will use the `$` operator:
+
+* **`unique(ESS_Subset$polintr)`**: Shows you a list of all the different answers in that column without repeats.
+* **`summary(ESS_Subset$polintr)`**: If the column is numbers, it gives you the average and range; if it's a category, it gives you counts.
+* **`mean(ESS_Subset$polintr)`**: To look at the mean of our column
+
+```{r}
+mean(ESS_Subset$polintr)
+median(ESS_Subset$polintr)
+head(ESS_Subset$polintr)
+tail(ESS_Subset$polintr)
+```
+
+
+Perfect! Let us look at the final important function and take a 5 minute break! After the break, we will look at how to plot the distributions of these variables! 
+
+This is the ``table()`` function! This is another very important function. It essentially asks R: <u>"Can you count how many times each unique value appears?"</u>. The output is very easy to read as well. Let us try this: 
+
+```{r}
+table(ESS_Subset$polintr)
+```
+
+We can see that respondents selected "1" 1071 times, "2" 2071 times and so on...
+
+In this, we can also provide two variables! Lets try interest in politics and the country of the respondent. 
+
+```{r}
+table(ESS_Subset$polintr, ESS_Subset$cntry)
+```
+
+Wait, but this not very useful. I am not able to understand what is happening quickly. We can also try to use ``prop.table()`` in such cases, which converts counts into proportions. ``prop.table()`` does not know how to look at raw columns; it only knows how to look at an existing table, so we must give it a table. We must also specify if we would like proportions by rows or by columns. Here is how to do that: 
+
+- **By Row**: ``prop.table(table(ESS_Subset$polintr, ESS_Subset$cntry), 1)``
+
+- **By Column**: ``prop.table(table(ESS_Subset$polintr, ESS_Subset$cntry), 2)``
+
+```{r}
+prop.table(table(ESS_Subset$polintr, ESS_Subset$cntry), 2)
+```
+
+
+<div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+<div class="card-header">Question</div>
+<div class="card-body">
+<p class="card-text">Looking at this variable, we **immediately notice a problem!** Can you guess what it is? We will be solving that in the next section. </p>
+</div>
+</div>
+
+
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Wait!</strong> We have covered a lot now! Let us look at this carefully and ask any questions if something is unclear. Would you like me explain anything again?
+</div>
+
+### Variable Distributions
+
+#### How to plot variable distributions?
+
+To begin with, we will only look at univariate distributions, i.e., how is a single variable (column) distributed? Is there something which raises suspicion or does it all feel normal? 
+
+To make univariate distributions for all the columns in the data, we must first identify if the variable is either continuous, categorical or character. This is because:
+
+ * if variable is continuous = density plot
+ * if variable is categorical = bar graph
+* 
+if variable is string = n-gram bar graph
+
+Most of the variables in the subset, which we will are looking at for this exercise, are categorical. We will learn more about **data types and logical operators in R** during the coming weeks. 
+
+<u>For now, let us start with working with some real world data!</u> I will be showing an example using the political interest **"polintr"** variable. 
+
+<div class="accordion w-100" id="plotAccordion">
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="stepOne">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+Step 1: Inspect the variable of interest
+</button>
+</h2>
+<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="stepOne" data-bs-parent="#plotAccordion">
+<div class="accordion-body">
+This is <b>very important</b>. The <code>table()</code> function we discussed in the previous section would be perfect for this, as it shows how many times each unique value appears. While looking at bargraphs, it is important to understand what each number stands for. Running <code>table()</code> we get this result:
+<br><br>
+<img src="table.png" alt="Table: political interest" style="max-width:100%;">
+<br><br>
+Notice something odd? No 5 and 6 values? Why such low observations in 7 and 8? For this we need to inspect the variable, either from the codebook shared or the online <a href="https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef" target="_blank">ESS variable guide</a>. We have found out the meaning behind the numbers and the gap!
+<br><br>
+<img src="POLINTR.png" alt="Polintr scale" style="max-width:100%;">
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="stepTwo">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+Step 2: Decision on Data Manipulation
+</button>
+</h2>
+<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="stepTwo" data-bs-parent="#plotAccordion">
+<div class="accordion-body">
+Okay, now that we know what the scale means, we must decide what to do. <b>Do we remove these? Or merge some values? Or something else?</b> What do you guys think?
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<h2 class="accordion-header" id="stepThree">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+Step 3: Visualisation
+</button>
+</h2>
+<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="stepThree" data-bs-parent="#plotAccordion">
+<div class="accordion-body">
+<div class="alert alert-dismissible alert-danger">
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<b>IMP:</b> This is not a session on data visualisation. This will be covered soon! There we will learn how to make nice visualisations, convert graphs from our imagination into reality and focus on small important details.
+</div>
+Since the objective is to look at how people respond and understand which variable is sensitive and which is not, we will not remove any data as missing values, refusal to answer etc., tell us quite a bit too! 
+<br><br>
+Let us now plot a simple bar graph in R! Our first plot :) Use this code:
+<br>
+<code>ggplot(ESS_Subset, aes(x=polintr)) + geom_bar() + theme_bw()</code>
+<br><br>
+The first part specifies what we have and the second part, what we want to do with it. We can add titles, labels, colors and so much more but, that is for another class! You should see something like this:
+<br><br>
+<img src="polintr_plot.png" alt="Polintr plot" style="max-width:100%;">
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+### Variable Distributions Exercise
+
+#### Exercise Part 1
+
+In this exercise, we will compare the distributions of **"safe"** variables with potentially **sensitive** ones. Take 10-15 minutes and attempt the following exercise: 
+
+- Make a histogram of eduyrs (education years)
+  - Do you find any suspicious patterns? 
+- Make a histogram of lrscale (left-right)
+  - Is there a heap at 5 (midpoint)?
+  - Let us look at the variable codebook. Why might this be happening? 
+- Make a histogram of imwbcnt ("immigrants make country worse [0] or better [10]")
+ - Are there any spikes at socially desirable values? 
+- Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask: 
+  - (1) Is there a social referent? 
+  - (2) Can they learn the answer?
+  - (3) Is there a preferred response?
+  - (4) Are there social costs? 
+- Finally, using the four-conditions framework, let us discuss which variables are likely affected by social desirability? What does a suspicious distribution look like? (heaping at midpoint, avoidance of extreme positions, missing data patterns)
+
+
+#### Exercise Part 2 
+
+
+Great job! You have made it to the final section! Here, we will try to see if there are any differences based on the country and what they might mean. To look at different countries together, we are going to use the popular visualization method in R: **Faceting**. To create facets, we use the command ``facet_wrap(~variable)``. Here the ``~`` tell us what variable we would like to facet. We will look more into faceting during the visualization session! For now, facets help us plot the data into different panels by splitting it based on the the variable of interest. In our case, we need to run the following command: 
+
+```{r}
+ggplot(ESS_Subset, aes(x=imwbcnt)) + 
+  geom_bar() + 
+  facet_wrap(~cntry) +
+  theme_bw() 
+```
+
+Now, it is your turn to try this! 
+
+- Pick one sensitive variable
+- Compare its distribution across the countries
+  - Let us Discuss: Are the differences real attitudes, or could survey mode / social desirability explain part of the gap?
+
+
+Great! Now T1, T2, T3, T4 are done! At home, you also also work on these independent tasks:
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+<div class="card-header">In-Class Task</div>
+<div class="card-body text-primary">
+<p class="card-text">
+T1: Downloading and Loading ESS Subset on R. ✅<br>
+T2: Introduction to Key Commands ✅ <br>
+T3: Plotting Variable Distributions ✅<br>
+T4: Cross Country and Mode Comparision ✅ 
+</p>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+<div class="card-header">Independent Work</div>
+<div class="card-body text-primary">
+<p class="card-text">
+IT1: How does T3 change based on other variables available  <br>
+IT2: Survey Time and Sensitive Questions <br>
+IT3: Demographic, Country, Mode and Time Based Differences
+</p>
+</div>
+</div>
+</div>
+</div>
+

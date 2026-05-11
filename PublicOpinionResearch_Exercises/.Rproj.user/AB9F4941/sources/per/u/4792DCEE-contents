@@ -1,0 +1,34 @@
+# 1. Importance ranking - always start here.
+rf <- cj_fit(f, data = immig, method = "forest")
+top_levels <- importance(rf)$results
+head(top_levels[, c("rank", "attribute", "level", "mda", "root_pct")], 10)
+
+# 2. Decision structure - does a single attribute gate the rest?
+tr <- cj_fit(f, data = immig, method = "tree")
+tr$root_split   # the gatekeeper, if any
+
+# 3. Decision order - sequential elimination view.
+nmm <- cj_fit(f, data = immig, method = "nmm",
+              resp_id = "CaseID", n_boot = 0)
+
+# 4. Per-respondent attendance - heterogeneity diagnostic.
+mr2 <- cj_fit(f, data = immig, method = "marginal_r2",
+              resp_id = "CaseID")
+
+
+
+
+plot(rf,
+     palette = "colorblind",
+     attribute.names = c(LanguageSkills = "English Proficiency",
+                         JobPlans = "Plans for Employment"),
+     top_n = 20)
+rpart.plot::rpart.plot(rf)
+
+
+f <- Chosen_Immigrant ~ Gender + Education + LanguageSkills +
+  CountryofOrigin + Job + JobExperience + JobPlans +
+  ReasonforApplication + PriorEntry
+
+rf <- cj_fit(f, data = immig, method = "tree")
+rf

@@ -1,0 +1,26 @@
+"0","skim(ESS_Subset) # This uses library(skimr); install using install.packages(""skimr"")
+"
+"1","── Data Summary ────────────────────────
+"
+"1","                           Values    
+"
+"1","Name                       ESS_Subset
+"
+"1","Number of rows             5768      
+"
+"1","Number of columns          29        
+"
+"1","_______________________              
+"
+"1","Column type frequency:               
+"
+"1","  character                3         
+"
+"1","  numeric                  22        
+"
+"1","  POSIXct                  4         
+"
+"1","________________________             
+"
+"1","Group variables            None      
+"

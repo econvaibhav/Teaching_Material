@@ -1,0 +1,12 @@
+# Preface {.unnumbered}
+
+![Course Booklet: Public Opinion Research](cover_image.png.png)
+
+This booklet contains the topics covered and code for the  **exercise** classes in the (SOT86131) Public Opinion Research Methods course. This booklet will help you navigate through the weeks quickly. Separate .R files will also be uploaded on Moodle, containing the code and comments. Feel free to ask any questions in the "Q&A" tab on Moodle. 
+
+### Topics Covered
+
+1. **Week 1**
+    * 1.1 Introduction to R!
+    * 1.2 ESS Data 
+    * 1.3 Task List + Independant Work

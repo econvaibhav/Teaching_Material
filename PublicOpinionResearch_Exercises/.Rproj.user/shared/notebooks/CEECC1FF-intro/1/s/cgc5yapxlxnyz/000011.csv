@@ -1,0 +1,4 @@
+"0","ggplot(ESS_Subset, aes(x=imwbcnt)) + "
+"0","  geom_bar() + "
+"0","  facet_wrap(~cntry) +"
+"0","  theme_bw() "

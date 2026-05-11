@@ -1,0 +1,384 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "273081c9-194c-4bb5-9f84-c6f2b6d0f4d6",
+   "metadata": {},
+   "source": [
+    "# Lab 3: NumPy + Pandas for Eye-Tracking Data\n",
+    "\n",
+    "### Goal:\n",
+    "In this lab, you will learn the basic Python tools used for eye-tracking data analysis:\n",
+    " - NumPy (for numerical calculations)\n",
+    " - Pandas (for working with CSV files and tables)\n",
+    " - Matplotlib (for simple visualization)\n",
+    "\n",
+    " These tools will be used in the next labs for\n",
+    " calibration analysis and gaze interaction.\n",
+    "\n",
+    "## Task 1 — NumPy Arrays\n",
+    "\n",
+    "### Objective:\n",
+    " Understand how gaze data can be stored as numerical arrays.\n",
+    "\n",
+    "### Instructions:\n",
+    "1. Create two NumPy arrays:\n",
+    "       - gaze_x\n",
+    "       - gaze_y\n",
+    "2. Print both arrays\n",
+    "\n",
+    "### Observe:\n",
+    " - Why is gaze data stored as many values instead of one?\n",
+    " - What does each value represent?\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed6cd1d3-51c4-4fe7-9a46-804e5b3836e4",
+   "metadata": {},
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "gaze_x = np.array([400, 405, 398, 410, 402])\n",
+    "gaze_y = np.array([300, 298, 305, 310, 299])\n",
+    "\n",
+    "print(\"Gaze X:\", gaze_x)\n",
+    "print(\"Gaze Y:\", gaze_y)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "150a638c-65af-4930-92b9-203541d38ff2",
+   "metadata": {},
+   "source": [
+    "## Task 2 — Basic Statistics\n",
+    "\n",
+    "### Objective:\n",
+    "Calculate simple statistics from gaze data.\n",
+    "\n",
+    "### Instructions:\n",
+    "1. Calculate:\n",
+    "       - mean\n",
+    "       - standard deviation\n",
+    "2. Print the results\n",
+    "\n",
+    "### Observe:\n",
+    " - What does the mean represent?\n",
+    " - What does a high standard deviation mean?\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b6b8000f-e58c-435e-b303-40b3dfe735d9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Mean X:\", np.mean(gaze_x))\n",
+    "print(\"Mean Y:\", np.mean(gaze_y))\n",
+    "\n",
+    "print(\"Std X:\", np.std(gaze_x))\n",
+    "print(\"Std Y:\", np.std(gaze_y))\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "15403cea-6cdd-4a86-9dcc-2dec896c8c3f",
+   "metadata": {},
+   "source": [
+    "## Task 3 — Distance from the Target\n",
+    "\n",
+    "### Objective:\n",
+    " Measure how far gaze is from the true target.\n",
+    "\n",
+    "### Instructions:\n",
+    " Assume the true target is located at:\n",
+    "       TargetX = 400\n",
+    "       TargetY = 300\n",
+    "\n",
+    " 1. Calculate the distance (error) for each gaze point\n",
+    " 2. Print the error values\n",
+    " 3. Calculate the mean error\n",
+    "\n",
+    "### Observe:\n",
+    " - Which gaze points are most accurate?\n",
+    " - Which are farthest from the target?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6f112930-e3f5-44f7-96f2-94de6f046098",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "target_x = 400\n",
+    "target_y = 300\n",
+    "\n",
+    "error = np.sqrt(\n",
+    "    (gaze_x - target_x) ** 2 +\n",
+    "    (gaze_y - target_y) ** 2\n",
+    ")\n",
+    "\n",
+    "print(\"Error values:\", error)\n",
+    "print(\"Mean Error:\", np.mean(error))\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7879f6c7-c0fb-4863-97f2-912629044e73",
+   "metadata": {},
+   "source": [
+    "## Task 4 — Create a Pandas DataFrame\n",
+    "\n",
+    "### Objective:\n",
+    "Store gaze data in a table format.\n",
+    "\n",
+    "### Instructions:\n",
+    "1. Create a DataFrame with:\n",
+    "       - GazeX\n",
+    "       - GazeY\n",
+    "       - Error\n",
+    "2. Display the table\n",
+    "\n",
+    "### Observe:\n",
+    " - Why is a table useful for eye-tracking analysis?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a902ff93-187d-4475-a289-1a6c0c66f80c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "df = pd.DataFrame({\n",
+    "    \"GazeX\": gaze_x,\n",
+    "    \"GazeY\": gaze_y,\n",
+    "    \"Error\": error\n",
+    "})\n",
+    "\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "48f232e1-9849-4831-a695-ec0c889e698d",
+   "metadata": {},
+   "source": [
+    "## Task 5 — Load Real CSV Data\n",
+    "\n",
+    "### Objective:\n",
+    " Load real calibration data from a CSV file.\n",
+    "\n",
+    "### Instructions:\n",
+    "1. Load the file:\n",
+    "       exampleCalibration.csv\n",
+    "2. Display the first 5 rows\n",
+    "\n",
+    "### Observe:\n",
+    "- What columns are available?\n",
+    "- Which columns seem most important for calibration?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "88a8f65b-cfa1-4830-a7eb-081927596a71",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data = pd.read_csv(\"exampleCalibration.csv\")\n",
+    "\n",
+    "print(data.head())\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1049f298-cd2a-4f07-9bbd-68795e71083f",
+   "metadata": {},
+   "source": [
+    "## Task 6 — Select Important Columns\n",
+    "\n",
+    "### Objective:\n",
+    " Focus only on useful gaze columns.\n",
+    "\n",
+    "### Instructions:\n",
+    " Display only:\n",
+    " - GazeX\n",
+    " - GazeY\n",
+    " - TargetX\n",
+    " - TargetY\n",
+    "\n",
+    "### Observe:\n",
+    " - What is the difference between gaze position\n",
+    "   and target position?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4134917f-f24f-4eb3-8035-fc386d315be6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\n",
+    "    data[\n",
+    "        [\"GazeX\", \"GazeY\", \"TargetX\", \"TargetY\"]\n",
+    "    ].head()\n",
+    ")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1717a36b-f59b-4b34-8702-122eaea73a0b",
+   "metadata": {},
+   "source": [
+    "## Task 7 — Plot Raw Gaze Points\n",
+    "\n",
+    "### Objective:\n",
+    " Visualize how gaze data looks before processing.\n",
+    "\n",
+    "### Instructions:\n",
+    "1. Create a scatter plot using:\n",
+    "       - GazeX\n",
+    "       - GazeY\n",
+    "2. Add:\n",
+    "       - axis labels\n",
+    "       - plot title\n",
+    "\n",
+    "### Observe:\n",
+    " - Does gaze appear as one stable point?\n",
+    " - Do you notice noise or jitter?\n",
+    " - Why is raw gaze not perfectly stable?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2c2a760e-0d20-460f-a8cb-3cd889afefdc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "plt.scatter(\n",
+    "    data[\"GazeX\"],\n",
+    "    data[\"GazeY\"],\n",
+    "    s=5\n",
+    ")\n",
+    "\n",
+    "plt.xlabel(\"Gaze X Coordinate\")\n",
+    "plt.ylabel(\"Gaze Y Coordinate\")\n",
+    "plt.title(\"Raw Gaze Points\")\n",
+    "\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2053c575-8ecd-4543-9280-b88a3b786f65",
+   "metadata": {},
+   "source": [
+    "## Final Reflection\n",
+    "\n",
+    "Can we directly use raw gaze points for interaction?\n",
+    "\n",
+    " Think about:\n",
+    " - noise\n",
+    " - calibration accuracy\n",
+    " - gaze stability\n",
+    " - why preprocessing may be needed"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0dc209ea-ad12-4d3f-b9d3-6525584350d1",
+   "metadata": {},
+   "source": [
+    "## Task 8 — Your Own Gaze Data Analysis\n",
+    "\n",
+    "### Objective:\n",
+    "Apply NumPy, Pandas, and plotting by modifying the code yourself.\n",
+    "\n",
+    "### Instructions:\n",
+    "\n",
+    "Using the file `exampleCalibration.csv`, create your own small gaze analysis.\n",
+    "\n",
+    "1. Create a new column called **TotalError** using:\n",
+    "\n",
+    "   TotalError = |GazeX - TargetX| + |GazeY - TargetY|\n",
+    "\n",
+    "2. Print:\n",
+    "   - the first 10 rows\n",
+    "   - the mean value of the `TotalError` column\n",
+    "\n",
+    "3. Find:\n",
+    "   - which row has the highest error\n",
+    "   - which row has the lowest error\n",
+    "\n",
+    "4. Create a scatter plot using:\n",
+    "\n",
+    "   - `TargetX`\n",
+    "   - `TargetY`\n",
+    "     \n",
+    "   and\n",
+    "\n",
+    "   - `GazeX`\n",
+    "   - `GazeY`\n",
+    "\n",
+    "5. Add:\n",
+    "   - axis labels\n",
+    "   - plot title\n",
+    "   - legend\n",
+    "\n",
+    "### Observe:\n",
+    "\n",
+    "- Are gaze points close to the target positions?\n",
+    "- Which points show the biggest error?\n",
+    "- What might cause these differences?\n",
+    "- What does this tell you about calibration quality?\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5b13dd19-08c8-4681-9f97-642b6fa245a8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "91d7ad27-2ae0-4e7c-aa39-a435cba561ce",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python (tobii_env)",
+   "language": "python",
+   "name": "tobii_env"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.20"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

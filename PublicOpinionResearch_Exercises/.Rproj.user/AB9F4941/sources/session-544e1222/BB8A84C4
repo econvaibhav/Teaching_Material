@@ -1,0 +1,32 @@
+{
+    "id": "BB8A84C4",
+    "path": "~/Projects/David_Work/POR/PublicOpinionResearch_Exercises/intro.qmd",
+    "project_path": "intro.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1776766125310.0,
+    "source_on_save": true,
+    "relative_order": 2,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2:0",
+        "cursorPosition": "175,0",
+        "scrollLine": "169",
+        "docOutlineSize": "110"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1777001723,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1777001723243,
+    "read_only": false,
+    "read_only_alternatives": []
+}
