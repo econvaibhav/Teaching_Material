@@ -263,15 +263,36 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cntry</span>, <span class="va">agea</span>, <span class="va">gndr</span>, <span class="va">eduyrs</span>, <span class="va">polintr</span>, <span class="va">lrscale</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cntry</span> <span class="op">==</span> <span class="st">"DE"</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Let us also look at <a href="https://www.geeksforgeeks.org/r-language/r-operators/">R Operators: www.geeksforgeeks.org</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="roper.png" class="img-fluid figure-img"></p>
+<figcaption>R Operators: www.geeksforgeeks.org</figcaption></figure>
+</div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-
+<ul>
+<li>Using <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>
+</li>
+</ul>
+<p>The <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> function is the quick way to split data. It can get quite messy in many cases. It works by evaluating a logical condition and returning one value if TRUE and another if FALSE. To handle multiple splits, you will have to “nest” the functions.</p>
+<ul>
+<li>Using tidyverse with <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when()</a></code>
+</li>
+</ul>
+<p>Using tidyverse is cleaner and easy to read. <code><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when()</a></code> is the cleaner, more powerful version of <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>. It allows you to list multiple conditions sequentially without nesting!</p>
+<p>Here is an example: <img src="tidyverse_split.png" alt="Tidyverse Splitting" style="max-width:100%;"></p>
+<ul>
+<li>Using <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code>
+</li>
+</ul>
+<p>The <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> function is specifically designed for converting numeric vectors into factors by cutting them into intervals. This is often the best way to split the data which is separated into equal/unequal but consistant intervals.</p>
+<p>Here is an example: <img src="tidyverse2.png" alt="using cut()" style="max-width:100%;"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-
+<p>Use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> whenever you need to add a new column to your dataset without changing the original variables. Use <code><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when()</a></code> for complex logic (if/then) and <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> when you specifically want to create “buckets” or bins from numeric ranges.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-
+<p>Inside a pipe, call <code>mutate(new_column_name = calculation/logic)</code>. Within that, use <code><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when()</a></code> to map specific values or <code><a href="https://rdrr.io/r/base/cut.html">cut()</a></code> to define breaks and labels for numeric intervals.</p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div class="cell">
@@ -302,13 +323,13 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-
+<p><strong>Use Case</strong>: Narrowing your focus. In the ESS, this is most commonly used to select specific countries for comparison or to “clean” the data by removing non-response codes (77, 88, 99) before doing math. <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> is one of the most commonly used functions prior to further aggregations.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-
+<p>Use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> at the beginning of your analysis to remove observations that aren’t relevant to your research question, or to isolate specific groups</p>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-
+<p>Provide a logical condition inside the function, such as <code>==</code> (equal to), <code>!=</code> (not equal to), <code>&gt;</code> (greater than), or <code>%in%</code> (contained within a list)</p>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <div class="cell">
@@ -350,13 +371,13 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-
+<p><strong>Use Case</strong>: Enriching your data. In social sciences, we often merge different types of datasets to enrich our findings. For example, we can merge individual-level survey data (ESS) with country-level context (like Gapminder’s GDP or World Bank data) to see how national environments affect individual behavior :)</p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-
+<p>Use <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> (the tidyverse version of <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code>) when you have two separate tables that share a common <code>"key"</code> variable (for example <code>cntry</code> in one of our examples) and, you want to bring them together into one wide dataframe.</p>
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-
+<p><code>data_a %&gt;% left_join(data_b, by = "common_column")</code>. The “left” join ensures you keep all rows from your primary dataset.</p>
 </div>
 <div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
 <div class="cell">
@@ -409,13 +430,13 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-
+<p><strong>Use Case</strong>: Moving from individuals to groups. Instead of looking at all the respondent individually, you might want to see the different group based scores for each country. This is the foundation of most descriptive tables in research.</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-
+<p>Whenever you need a “summary” statistic (mean, median, count) for different categories rather than the whole dataset.</p>
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-
+<p>Always use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> together. <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> sets the “buckets,” and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> performs the calculation (like <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code>) inside each bucket.</p>
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <div class="cell">
@@ -455,6 +476,7 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p><strong>Use case</strong>: Getting data into the right “shape.”</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Let us understand this using gapminder. </span></span>
 <span><span class="va">gap_wide</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -471,10 +493,10 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </div>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-
+<p>Use <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> when you have multiple columns (like trust_police, trust_parl etc.) and you would want like to turn them into a single “Type” column for easier plotting. Use <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> when you want to create a clean summary table for a report. However, the type and use cases depend mainly on the specific use cases!</p>
 </div>
 <div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
-
+<p><code>pivot_longer(cols = columns_to_move, names_to = "new_label_col", values_to = "new_value_col")</code></p>
 </div>
 <div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
 <div class="cell">
@@ -514,13 +536,40 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-
+<p><strong>Use case</strong>: Constructing indices. We often average several related questions (like three questions on immigration) to create a more reliable “Index” or “Scale.”</p>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
-
+<p>When you need to perform math across columns (row-wise) to create a total score or a mean score for a respondent.</p>
 </div>
 <div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
-
+<p><code>Use mutate()</code> and standard math symbols (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>). For averaging multiple columns while handling missing data, <code><a href="https://rdrr.io/r/base/colSums.html">rowMeans()</a></code> is the standard tool.</p>
+<p>Transformation code can be:</p>
+<ul>
+<li>addition: A &lt;- B + C</li>
+<li>subtraction: A &lt;- B - C</li>
+<li>division: A &lt;- B / C</li>
+<li>multiplication: A &lt;- B * C</li>
+<li>power: A &lt;- B^2</li>
+</ul>
+<p>Common statistical functions:</p>
+<ul>
+<li>minimum value: MIN &lt;- <code>min(A)</code>
+</li>
+<li>maximum value: MAX &lt;- <code>max(A)</code>
+</li>
+<li>absolute value: A &lt;- <code>abs(A)</code>
+</li>
+<li>sum: SUM_A &lt;- <code>sum(A)</code>
+</li>
+<li>mean: mean_A &lt;- <code>mean(A)</code>
+</li>
+<li>square root: X &lt;- <code>sqrt(A)</code>
+</li>
+<li>exponential: X &lt;- <code>exp(A)</code>
+</li>
+<li>natural logarithm: X &lt;- <code>log(A)</code>
+</li>
+</ul>
 </div>
 <div id="tabset-6-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-4-tab">
 <div class="cell">
@@ -562,7 +611,83 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 
 </div>
 <div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
-
+<p>Linear Regression:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stargazer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Please cite as: </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> R package version 5.2.3. https://CRAN.R-project.org/package=stargazer </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Preparing the Regression Data</span></span>
+<span><span class="co"># We ensure variables are numeric and filter out NAs (including the ESS 77, 88, 99 codes)</span></span>
+<span><span class="va">reg_data</span> <span class="op">&lt;-</span> <span class="va">ESS_Subset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    trust_parl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">trstprl</span><span class="op">)</span>,</span>
+<span>    age        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">agea</span><span class="op">)</span>,</span>
+<span>    edu        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">eduyrs</span><span class="op">)</span>,</span>
+<span>    pol_int    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">polintr</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
+<span>    <span class="va">trust_parl</span> <span class="op">&lt;=</span> <span class="fl">10</span>, <span class="co"># Removes 77, 88, 99</span></span>
+<span>    <span class="va">pol_int</span>    <span class="op">&lt;=</span> <span class="fl">4</span>,  <span class="co"># Valid range </span></span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">trust_parl</span><span class="op">)</span>,</span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">edu</span><span class="op">)</span>,</span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">pol_int</span><span class="op">)</span>,</span>
+<span>    <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">gndr</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Testing does age predict trust</span></span>
+<span><span class="va">fit1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">trust_parl</span> <span class="op">~</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">reg_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Adding education and political interest</span></span>
+<span><span class="va">fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">trust_parl</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">edu</span> <span class="op">+</span> <span class="va">pol_int</span>, data <span class="op">=</span> <span class="va">reg_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Create the Table</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/stargazer/man/stargazer.html">stargazer</a></span><span class="op">(</span></span>
+<span>  <span class="va">fit1</span>, <span class="va">fit2</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>  title <span class="op">=</span> <span class="st">"Table 1: Predictors of Trust in Parliament"</span>,</span>
+<span>  covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Age"</span>, <span class="st">"Years of Education"</span>, <span class="st">"Political Interest"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Table 1: Predictors of Trust in Parliament
+==================================================================
+                                 Dependent variable:              
+                    ----------------------------------------------
+                                      trust_parl                  
+                            (1)                     (2)           
+------------------------------------------------------------------
+Age                        -0.001                 -0.001*         
+                          (0.0005)               (0.0005)         
+                                                                  
+Years of Education                               0.019***         
+                                                  (0.005)         
+                                                                  
+Political Interest                               -0.782***        
+                                                  (0.038)         
+                                                                  
+Constant                  5.192***               6.798***         
+                          (0.046)                 (0.131)         
+                                                                  
+------------------------------------------------------------------
+Observations               5,484                   5,484          
+R2                         0.0003                  0.076          
+Adjusted R2                0.0001                  0.076          
+Residual Std. Error  2.736 (df = 5482)       2.630 (df = 5480)    
+F Statistic         1.492 (df = 1; 5482) 151.145*** (df = 3; 5480)
+==================================================================
+Note:                                  *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>Logistic Regression</p>
 </div>
 </div>
 </div>

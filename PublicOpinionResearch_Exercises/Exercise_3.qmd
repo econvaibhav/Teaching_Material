@@ -77,14 +77,37 @@ DE_Subset <- ESS_Subset %>%
   filter(cntry == "DE") 
 ```
 
+Let us also look at [R Operators: www.geeksforgeeks.org](
+https://www.geeksforgeeks.org/r-language/r-operators/)
 
+![R Operators: www.geeksforgeeks.org](roper.png)
 
 ### Use case + Documentation
 
+- Using ``ifelse()``
+
+The `ifelse()` function is the quick way to split data. It can get quite messy in many cases. It works by evaluating a logical condition and returning one value if TRUE and another if FALSE. To handle multiple splits, you will have to "nest" the functions.
+
+- Using tidyverse with `mutate()` and `case_when()`
+
+Using tidyverse is cleaner and easy to read. `case_when()` is the cleaner, more powerful version of `ifelse()`. It allows you to list multiple conditions sequentially without nesting!
+
+Here is an example: <img src="tidyverse_split.png" alt="Tidyverse Splitting" style="max-width:100%;"/>
+
+- Using `cut()`
+
+The `cut()` function is specifically designed for converting numeric vectors into factors by cutting them into intervals. This is often the best way to split the data which is separated into equal/unequal but consistant intervals.
+
+Here is an example: <img src="tidyverse2.png" alt="using cut()" style="max-width:100%;"/>
 
 ### When 
 
+Use ``mutate()`` whenever you need to add a new column to your dataset without changing the original variables. Use ``case_when()`` for complex logic (if/then) and ``cut()`` when you specifically want to create "buckets" or bins from numeric ranges.
+
+
 ###  How
+
+Inside a pipe, call ``mutate(new_column_name = calculation/logic)``. Within that, use ``case_when()`` to map specific values or ``cut()`` to define breaks and labels for numeric intervals.
 
 ### ESS Example
 
@@ -115,14 +138,18 @@ ESS_Subset <- ESS_Subset %>%
 
 ### Use case + Documentation
 
+**Use Case**: Narrowing your focus. In the ESS, this is most commonly used to select specific countries for comparison or to "clean" the data by removing non-response codes (77, 88, 99) before doing math. ``filter()`` is one of the most commonly used functions prior to further aggregations. 
+
 
 ### When 
 
+Use ``filter()`` at the beginning of your analysis to remove observations that aren't relevant to your research question, or to isolate specific groups
 
 ###  How
 
-### ESS Example
+Provide a logical condition inside the function, such as ``==`` (equal to), ``!=`` (not equal to), ``>`` (greater than), or ``%in%`` (contained within a list)
 
+### ESS Example
 
 ```{r}
 #Simple ESS Example
@@ -163,11 +190,15 @@ df_clean <- ESS_Subset %>%
 
 ### Use case + Documentation
 
+**Use Case**: Enriching your data. In social sciences, we often merge different types of datasets to enrich our findings. For example, we can merge individual-level survey data (ESS) with country-level context (like Gapminder's GDP or World Bank data) to see how national environments affect individual behavior :) 
 
 ### When 
 
+Use ``left_join()`` (the tidyverse version of ``merge()``) when you have two separate tables that share a common ``"key"`` variable (for example ``cntry`` in one of our examples) and, you want to bring them together into one wide dataframe.
 
 ###  How
+
+``data_a %>% left_join(data_b, by = "common_column")``. The "left" join ensures you keep all rows from your primary dataset.
 
 ### ESS Example
 
@@ -219,11 +250,14 @@ combined_data <- ess_with_names %>% left_join(gap_filtered, by = "country")
 
 ### Use case + Documentation
 
+**Use Case**: Moving from individuals to groups. Instead of looking at all the respondent individually, you might want to see the different group based scores for each country. This is the foundation of most descriptive tables in research.
 
 ### When 
-
+Whenever you need a "summary" statistic (mean, median, count) for different categories rather than the whole dataset.
 
 ###  How
+
+Always use ``group_by()`` and ``summarize()`` together. ``group_by()`` sets the "buckets," and ``summarize()`` performs the calculation (like ``mean()`` or ``n()``) inside each bucket.
 
 ### ESS Example
 
@@ -255,6 +289,8 @@ trust_summary <- ESS_Subset %>%
 
 ### Use case + Documentation
 
+**Use case**: Getting data into the right "shape." 
+
 ```{r}
 # Let us understand this using gapminder. 
 gap_wide <- gapminder %>%
@@ -274,8 +310,11 @@ gap_long <- gap_wide %>%
 
 ### When 
 
+Use ``pivot_longer()`` when you have multiple columns (like trust_police, trust_parl etc.) and you would want like to turn them into a single "Type" column for easier plotting. Use ``pivot_wider()`` when you want to create a clean summary table for a report. However, the type and use cases depend mainly on the specific use cases! 
 
 ###  How
+
+``pivot_longer(cols = columns_to_move, names_to = "new_label_col", values_to = "new_value_col")``
 
 ### ESS Example
 
@@ -316,20 +355,42 @@ trust_comparison_piv <- ESS_Subset %>%
 
 ### Use case + Documentation
 
+**Use case**: Constructing indices. We often average several related questions (like three questions on immigration) to create a more reliable "Index" or "Scale."
+
+
+
 
 ### When 
-
+When you need to perform math across columns (row-wise) to create a total score or a mean score for a respondent.
 
 ###  How
+``Use mutate()`` and standard math symbols (``+``, ``-``, ``/``, ``*``). For averaging multiple columns while handling missing data, ``rowMeans()`` is the standard tool.
+
+Transformation code can be:
+
+- addition: A <- B + C
+- subtraction: A <- B - C
+- division: A <- B / C
+- multiplication: A <- B * C
+- power: A <- B^2
+
+
+Common statistical functions:
+
+- minimum value: MIN <- ``min(A)``
+- maximum value: MAX <- ``max(A)``
+- absolute value: A <- ``abs(A)``
+- sum: SUM_A <- ``sum(A)``
+- mean: mean_A <- ``mean(A)``
+- square root: X <- ``sqrt(A)``
+- exponential: X <- ``exp(A)``
+- natural logarithm: X <- ``log(A)``
 
 ### ESS Example
 ```{r}
 #Simple ESS Example
 ESS_Subset <- ESS_Subset %>% 
   mutate(total_society = trstplc + trstprl)
-
-
-
 ```
 
 ```{r}
@@ -362,6 +423,51 @@ ESS_Subset <- ESS_Subset %>%
 ###  How
 
 ### ESS Example
+
+Linear Regression: 
+```{r}
+library(stargazer)
+
+# Preparing the Regression Data
+# We ensure variables are numeric and filter out NAs (including the ESS 77, 88, 99 codes)
+reg_data <- ESS_Subset %>%
+  mutate(
+    trust_parl = as.numeric(trstprl),
+    age        = as.numeric(agea),
+    edu        = as.numeric(eduyrs),
+    pol_int    = as.numeric(polintr)
+  ) %>%
+  filter(
+    trust_parl <= 10, # Removes 77, 88, 99
+    pol_int    <= 4,  # Valid range 
+    !is.na(trust_parl),
+    !is.na(age),
+    !is.na(edu),
+    !is.na(pol_int),
+    !is.na(gndr)
+  )
+
+# Testing does age predict trust
+fit1 <- lm(trust_parl ~ age, data = reg_data)
+
+# Adding education and political interest
+fit2 <- lm(trust_parl ~ age + edu + pol_int, data = reg_data)
+
+# 3. Create the Table
+stargazer(
+  fit1, fit2,
+  type = "text",
+  title = "Table 1: Predictors of Trust in Parliament",
+  covariate.labels = c("Age", "Years of Education", "Political Interest")
+)
+```
+Logistic Regression
+
+```{r}
+
+```
+
+
 
 :::
 
