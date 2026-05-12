@@ -48,6 +48,9 @@ These cheat sheets help list various data transformations and tidying your envir
 * [Data Transformation with dplyr](https://opensource.posit.co/resources/cheatsheets/data-transformation/)
 * [Data Tidying with tidyr](https://opensource.posit.co/resources/cheatsheets/tidyr/)
 
+Here is the Bingo for today: 
+![R Bingo](R_BINGO.png)
+
 ## Splitting variable (``mutate() & cut()``)
 
 ::: {.panel-tabset}
@@ -416,11 +419,47 @@ ESS_Subset <- ESS_Subset %>%
 
 ### Use case + Documentation
 
+This Reddit post does a great job at explaining what a regression is: [What is a Regression?](https://www.reddit.com/r/explainlikeimfive/comments/10t73h2/eli5_what_is_a_regression_analysis_and_what_is_an/). 
+
+Here is a another resource: [Ultimate guide to Regression](https://www.graphpad.com/guides/the-ultimate-guide-to-linear-regression).
+
+Here is a great video which talks about linear regressions: 
+
+{{< video https://www.youtube.com/watch?v=eYTumjgE2IY 
+    title="Learn Statistical Regression in 40 mins!"
+    width="600" 
+    height="400" >}}
+
+Here are some interesting sources which explain linear regressions well:
+
+- One of the best explainations in [Chapter 7 of R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/regression.html)
+
+- Another good source: [MLU Visual Explainations](https://mlu-explain.github.io/linear-regression/)
+
+
+For Logistic Regression, here are some really amazing videos by [StatQuest by Josh Starmer on Logistic Regressions](https://www.youtube.com/@statquest). If you are interested you can continue on the logistic regression series following the videos!
+
+{{< video https://www.youtube.com/watch?v=yIYKR4sgzI8&t
+  title="StatQuest: Logistic Regression"
+    width="600" 
+    height="400" >}}
+    
+    
+{{< video https://www.youtube.com/watch?v=ARfXDSkQf1Y 
+    title="Odds and Log(Odds), Clearly Explained!!!"
+    width="600" 
+    height="400" >}}
+
+Furthermore, this link covers everything related to logistic regressions and explainations for all the outputs generated: [Chapter 9 in R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/chap09-h1.html)
 
 ### When 
 
+Use ``lm()`` for continuous outcomes (like a 0–10 scale). Use logistic regression (via ``finalfit`` or ``glm()``) for binary outcomes (like Yes/No or 1/0).
 
 ###  How
+
+Define your model as ``y ~ x1 + x2``. Use ``stargazer()`` to output professional, academic-style tables.
+
 
 ### ESS Example
 
@@ -461,10 +500,52 @@ stargazer(
   covariate.labels = c("Age", "Years of Education", "Political Interest")
 )
 ```
+
 Logistic Regression
 
 ```{r}
+# Let us make a binary dependant variable
+# polintr: 1=Very, 2=Quite, 3=Hardly, 4=Not at all
 
+logit_data <- ESS_Subset %>%
+  mutate(
+    polintr_num = as.numeric(polintr),  
+    high_interest = case_when(
+      polintr_num <= 2 ~ 1, 
+      polintr_num >= 3 & polintr_num <= 4 ~ 0, 
+      TRUE ~ NA_real_
+    )
+  ) %>%
+  filter(!is.na(high_interest))
+
+# let us make the varibale usuable if they are not (remember if the varibale is not numeric, convert it to numeric). We also need to limit the data to 0-10 as values like 88 are not relevant
+logit_data <- logit_data %>%
+  filter(imwbcnt <= 10, imueclt <= 10, imbgeco <= 10)
+
+# Let us fit the logistic regression model
+# This basically asks the question: Do immigration attitudes predict political interest?
+
+fit_logit1 <- glm(
+  high_interest ~ imwbcnt + imueclt + imbgeco,
+  data = logit_data,
+  family = binomial
+)
+
+# Display results
+summary(fit_logit1)
+
+# 4. Adding Socio-Demographic Controls
+# Try uncommenting this to see how Age, Gender, and Education impact the model!
+# fit_logit2 <- glm(
+#   high_interest ~ imwbcnt + imueclt + imbgeco +
+#     agea + 
+#     gndr + 
+#     eduyrs,
+#   data = logit_data,
+#   family = binomial
+# )
+# 
+# summary(fit_logit2)
 ```
 
 
@@ -472,6 +553,34 @@ Logistic Regression
 :::
 
 
-## Full Analysis Pipeline
+## BINGO Card Exercise
+
+Let us get back to the BINGO card! How have you been able to progress? Are you confident with the boxes which are done/left! 
+
+To summarise, let us look at this short video which talks about the concepts we covered in class today:
+
+{{< video https://www.youtube.com/watch?v=Gvhkp-Yw65U 
+    title="Dplyr Essentials (easy data manipulation in R): select, mutate, filter, group_by, summarise, & more"
+    width="600" 
+    height="400" >}}
 
 
+Is it looking like this! 
+
+![R Bingo is DONE!](R_BINGO_done.png)
+
+
+## Next Class: Tables and Graphs
+
+Some graphs/tables in R to give you an idea! 
+
+![Image 1](1.png)
+![Image 2](2.png)
+
+![Image 3](3.png)
+
+![Image 4](4.png)
+
+![Image 5](5.png)
+
+![Image 6](6.png)

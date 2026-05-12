@@ -172,7 +172,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reshaping-data-pivot_long-pivot_wider" id="toc-reshaping-data-pivot_long-pivot_wider" class="nav-link" data-scroll-target="#reshaping-data-pivot_long-pivot_wider"><span class="header-section-number">4.6</span> Reshaping data (<code>pivot_long() &amp; pivot_wider()</code>)</a></li>
   <li><a href="#transformations-a---b-c" id="toc-transformations-a---b-c" class="nav-link" data-scroll-target="#transformations-a---b-c"><span class="header-section-number">4.7</span> Transformations (<code>a  &lt;- b +c</code>)</a></li>
   <li><a href="#regressions-lm-glm" id="toc-regressions-lm-glm" class="nav-link" data-scroll-target="#regressions-lm-glm"><span class="header-section-number">4.8</span> Regressions (<code>lm() &amp; glm()</code>)</a></li>
-  <li><a href="#full-analysis-pipeline" id="toc-full-analysis-pipeline" class="nav-link" data-scroll-target="#full-analysis-pipeline"><span class="header-section-number">4.9</span> Full Analysis Pipeline</a></li>
+  <li><a href="#bingo-card-exercise" id="toc-bingo-card-exercise" class="nav-link" data-scroll-target="#bingo-card-exercise"><span class="header-section-number">4.9</span> BINGO Card Exercise</a></li>
+  <li><a href="#next-class-tables-and-graphs" id="toc-next-class-tables-and-graphs" class="nav-link" data-scroll-target="#next-class-tables-and-graphs"><span class="header-section-number">4.10</span> Next Class: Tables and Graphs</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -240,7 +241,9 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 <ul>
 <li><a href="https://opensource.posit.co/resources/cheatsheets/data-transformation/">Data Transformation with dplyr</a></li>
 <li><a href="https://opensource.posit.co/resources/cheatsheets/tidyr/">Data Tidying with tidyr</a></li>
-</ul></section><section id="splitting-variable-mutate-cut" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="splitting-variable-mutate-cut">
+</ul>
+<p>Here is the Bingo for today: <img src="R_BINGO.png" class="img-fluid" alt="R Bingo"></p>
+</section><section id="splitting-variable-mutate-cut" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="splitting-variable-mutate-cut">
 <span class="header-section-number">4.2</span> Splitting variable (<code>mutate() &amp; cut()</code>)</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
@@ -602,13 +605,25 @@ T1: Downloading and Loading ESS Subset on R. ✅<br> T2: Introduction to Key Com
 </ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-
+<p>This Reddit post does a great job at explaining what a regression is: <a href="https://www.reddit.com/r/explainlikeimfive/comments/10t73h2/eli5_what_is_a_regression_analysis_and_what_is_an/">What is a Regression?</a>.</p>
+<p>Here is a another resource: <a href="https://www.graphpad.com/guides/the-ultimate-guide-to-linear-regression">Ultimate guide to Regression</a>.</p>
+<p>Here is a great video which talks about linear regressions:</p>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/eYTumjgE2IY" width="600" height="400" title="Learn Statistical Regression in 40 mins!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Here are some interesting sources which explain linear regressions well:</p>
+<ul>
+<li><p>One of the best explainations in <a href="https://argoshare.is.ed.ac.uk/healthyr_book/regression.html">Chapter 7 of R for Health Data Science</a></p></li>
+<li><p>Another good source: <a href="https://mlu-explain.github.io/linear-regression/">MLU Visual Explainations</a></p></li>
+</ul>
+<p>For Logistic Regression, here are some really amazing videos by <a href="https://www.youtube.com/@statquest">StatQuest by Josh Starmer on Logistic Regressions</a>. If you are interested you can continue on the logistic regression series following the videos!</p>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/yIYKR4sgzI8" width="600" height="400" title="StatQuest: Logistic Regression" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ARfXDSkQf1Y" width="600" height="400" title="Odds and Log(Odds), Clearly Explained!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Furthermore, this link covers everything related to logistic regressions and explainations for all the outputs generated: <a href="https://argoshare.is.ed.ac.uk/healthyr_book/chap09-h1.html">Chapter 9 in R for Health Data Science</a></p>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
-
+<p>Use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> for continuous outcomes (like a 0–10 scale). Use logistic regression (via <code>finalfit</code> or <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code>) for binary outcomes (like Yes/No or 1/0).</p>
 </div>
 <div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
-
+<p>Define your model as <code>y ~ x1 + x2</code>. Use <code><a href="https://rdrr.io/pkg/stargazer/man/stargazer.html">stargazer()</a></code> to output professional, academic-style tables.</p>
 </div>
 <div id="tabset-7-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-4-tab">
 <p>Linear Regression:</p>
@@ -688,11 +703,105 @@ Note:                                  *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</cod
 </div>
 </div>
 <p>Logistic Regression</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Let us make a binary dependant variable</span></span>
+<span><span class="co"># polintr: 1=Very, 2=Quite, 3=Hardly, 4=Not at all</span></span>
+<span></span>
+<span><span class="va">logit_data</span> <span class="op">&lt;-</span> <span class="va">ESS_Subset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    polintr_num <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">polintr</span><span class="op">)</span>,  </span>
+<span>    high_interest <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case-and-replace-when.html">case_when</a></span><span class="op">(</span></span>
+<span>      <span class="va">polintr_num</span> <span class="op">&lt;=</span> <span class="fl">2</span> <span class="op">~</span> <span class="fl">1</span>, </span>
+<span>      <span class="va">polintr_num</span> <span class="op">&gt;=</span> <span class="fl">3</span> <span class="op">&amp;</span> <span class="va">polintr_num</span> <span class="op">&lt;=</span> <span class="fl">4</span> <span class="op">~</span> <span class="fl">0</span>, </span>
+<span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_real_</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">high_interest</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># let us make the varibale usuable if they are not (remember if the varibale is not numeric, convert it to numeric). We also need to limit the data to 0-10 as values like 88 are not relevant</span></span>
+<span><span class="va">logit_data</span> <span class="op">&lt;-</span> <span class="va">logit_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">imwbcnt</span> <span class="op">&lt;=</span> <span class="fl">10</span>, <span class="va">imueclt</span> <span class="op">&lt;=</span> <span class="fl">10</span>, <span class="va">imbgeco</span> <span class="op">&lt;=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Let us fit the logistic regression model</span></span>
+<span><span class="co"># This basically asks the question: Do immigration attitudes predict political interest?</span></span>
+<span></span>
+<span><span class="va">fit_logit1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span></span>
+<span>  <span class="va">high_interest</span> <span class="op">~</span> <span class="va">imwbcnt</span> <span class="op">+</span> <span class="va">imueclt</span> <span class="op">+</span> <span class="va">imbgeco</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">logit_data</span>,</span>
+<span>  family <span class="op">=</span> <span class="va">binomial</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_logit1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = high_interest ~ imwbcnt + imueclt + imbgeco, family = binomial, 
+    data = logit_data)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -0.84760    0.06801 -12.463  &lt; 2e-16 ***
+imwbcnt      0.02528    0.01896   1.333  0.18250    
+imueclt      0.06633    0.01749   3.792  0.00015 ***
+imbgeco      0.11616    0.01656   7.016 2.29e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7605.3  on 5533  degrees of freedom
+Residual deviance: 7276.0  on 5530  degrees of freedom
+AIC: 7284
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 4. Adding Socio-Demographic Controls</span></span>
+<span><span class="co"># Try uncommenting this to see how Age, Gender, and Education impact the model!</span></span>
+<span><span class="co"># fit_logit2 &lt;- glm(</span></span>
+<span><span class="co">#   high_interest ~ imwbcnt + imueclt + imbgeco +</span></span>
+<span><span class="co">#     agea + </span></span>
+<span><span class="co">#     gndr + </span></span>
+<span><span class="co">#     eduyrs,</span></span>
+<span><span class="co">#   data = logit_data,</span></span>
+<span><span class="co">#   family = binomial</span></span>
+<span><span class="co"># )</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co"># summary(fit_logit2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
-</section><section id="full-analysis-pipeline" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="full-analysis-pipeline">
-<span class="header-section-number">4.9</span> Full Analysis Pipeline</h2>
+</div>
+</section><section id="bingo-card-exercise" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="bingo-card-exercise">
+<span class="header-section-number">4.9</span> BINGO Card Exercise</h2>
+<p>Let us get back to the BINGO card! How have you been able to progress? Are you confident with the boxes which are done/left!</p>
+<p>To summarise, let us look at this short video which talks about the concepts we covered in class today:</p>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/Gvhkp-Yw65U" width="600" height="400" title="Dplyr Essentials (easy data manipulation in R): select, mutate, filter, group_by, summarise, &amp; more" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Is it looking like this!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="R_BINGO_done.png" class="img-fluid figure-img"></p>
+<figcaption>R Bingo is DONE!</figcaption></figure>
+</div>
+</section><section id="next-class-tables-and-graphs" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="next-class-tables-and-graphs">
+<span class="header-section-number">4.10</span> Next Class: Tables and Graphs</h2>
+<p>Some graphs/tables in R to give you an idea!</p>
+<p><img src="1.png" class="img-fluid" alt="Image 1"><img src="2.png" class="img-fluid" alt="Image 2"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="3.png" class="img-fluid figure-img"></p>
+<figcaption>Image 3</figcaption></figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="4.png" class="img-fluid figure-img"></p>
+<figcaption>Image 4</figcaption></figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="5.png" class="img-fluid figure-img"></p>
+<figcaption>Image 5</figcaption></figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="6.png" class="img-fluid figure-img"></p>
+<figcaption>Image 6</figcaption></figure>
+</div>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
