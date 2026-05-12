@@ -25,10 +25,28 @@ T5: Splitting Variable of Choice ✅
 ::::::
 :::::::
 
-For this exercise, we have some R cheat sheets and a BINGO! But first, a recap exercise, so we do not forget what we did in the last wo weeks.
+# Recap Exercise
+
+For this exercise, we have some R cheat sheets and a BINGO! But first, a recap exercise, so we do not forget what we did in the last two sessions!  
+
+- Load the ESS subset dataset into your environment  
+- Confirm that the dataset is available  
+- View the dataset  
+- Check its dimensions  
+- Look at the column names  
+- Explore any two variable using basic summaries  
+- Create a quick distribution plot for any variable 
+- Compare political interest across countries; look at both counts and proportions  
+- Choose another variable and split it into two groups
+- Compare another variable across these groups  
+
 
 ## Cheat Sheets and Bingo!
 
+These cheat sheets help list various data transformations and tidying your environment code syntax without needing to memorize every single function argument:
+
+* [Data Transformation with dplyr](https://opensource.posit.co/resources/cheatsheets/data-transformation/)
+* [Data Tidying with tidyr](https://opensource.posit.co/resources/cheatsheets/tidyr/)
 
 ## Splitting variable (``mutate() & cut()``)
 
@@ -36,6 +54,29 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ### Piping + Operators
 
+From [Pipe in R: A Guide](https://builtin.com/articles/pipe-in-r#:~:text=The%20pipe%20operator%2C%20formerly%20written,a%20sequence%20of%20analysis%20steps.)
+
+The pipe operator, formerly written as %>%, was a longstanding feature of the magrittr package for R. The new version, written as |>, is largely the same. It takes the output of one function and passes it into another function as an argument. This allows us to link a sequence of analysis steps.
+
+To visualize this process, imagine a factory with different machines placed along a conveyor belt. Each machine is a function that performs a stage of our analysis, like filtering or transforming data. The pipe works like a conveyor belt, transporting the output of one machine to another for further processing.
+
+The pipe is best understood as the word **"then"**, allowing us to read code like a sentence. We will use it here to select our specific variables and filter out a country.
+
+To look at how it works be can check an example from the ``ESS_Subset``, using a popular set of commands. 
+
+```{r,echo=F, message=FALSE}
+library(readr)
+ESS_Subset <- read_csv("ESS_Subset.csv")
+```
+
+
+```{r, warning=F, message=FALSE}
+library(tidyverse)
+DE_Subset <- ESS_Subset %>%
+  select(cntry, agea, gndr, eduyrs, polintr, lrscale) %>%
+  filter(cntry == "DE") 
+```
+
 
 
 ### Use case + Documentation
@@ -43,10 +84,28 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ### When 
 
-
 ###  How
 
 ### ESS Example
+
+```{r}
+ESS_Subset <- ESS_Subset %>%
+  mutate(gender_label = case_when(
+    gndr == 1 ~ "Male",
+    gndr == 2 ~ "Female",
+    TRUE      ~ NA_character_  
+  ))
+```
+
+
+```{r}
+ESS_Subset <- ESS_Subset %>%
+  mutate(age_group = cut(agea, 
+                         breaks = c(0, 30, 60, 120), 
+                         labels = c("Young", "Middle", "Senior")))
+```
+
+
 
 :::
 
@@ -54,9 +113,6 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ::: {.panel-tabset}
 
-### Pre-Requisite
-
-
 ### Use case + Documentation
 
 
@@ -66,6 +122,37 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ###  How
 
 ### ESS Example
+
+
+```{r}
+#Simple ESS Example
+# Filtering only Germany
+
+df_de <- ESS_Subset %>% filter(cntry == "DE")
+```
+
+```{r}
+# Nuanced ESS examples
+# Filtering young people who are highly interested in politics
+
+df_active_youth <- ESS_Subset %>% 
+  filter(agea < 30, polintr <= 2)
+
+```
+
+When we mant to filter out multiple specific values without writing ten ``==``statements
+
+```{r}
+# Filter for 2  countries of interest
+target_countries <- c("DE","SE")
+ESS_2country <- ESS_Subset %>% 
+  filter(cntry %in% target_countries)
+
+# Filtering for specific countries AND valid answers (Excluding 7, 8, and 9 from the polintr variable)
+df_clean <- ESS_Subset %>%
+  filter(cntry %in% c("DE", "SE"),
+         !polintr %in% c(7, 8, 9))
+```
 
 :::
 
@@ -74,9 +161,6 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ::: {.panel-tabset}
 
-### Pre-Requisite
-
-
 ### Use case + Documentation
 
 
@@ -86,6 +170,43 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ###  How
 
 ### ESS Example
+
+```{r}
+#Simple ESS Example
+# Sometimes it is possible to merge two datasets as well! In this example let us add the full names of the country using merge
+
+# Note: This is a simple merge example, it is better to use mutate when basically adding new columns like this! 
+
+# First check what are the countries we have
+table(ESS_Subset$cntry)
+
+# Next, make a df we want to merge, many times we already have it! 
+country_names <- tibble(cntry = c("DE", "HU", "SE"), full_name = c("Germany", "Hungary", "Sweden"))
+
+
+df_joined <- ESS_Subset %>% left_join(country_names, by = "cntry")
+
+```
+
+
+```{r}
+# Nuanced ESS example
+# What if there was another dataset we can merge this data with! 
+# *This is just an example
+
+library(gapminder)
+
+# gapminder has full country names, so we also add those!
+merge_help <- tibble(cntry = c("DE", "HU", "SE"), 
+                 country = c("Germany", "Hungary", "Sweden"))
+
+ess_with_names <- ESS_Subset %>% left_join(merge_help, by = "cntry")
+
+# since we do not want the combinated dataset to explode, lets filter for only one year, in this data the latest is 2007. 
+gap_filtered <- gapminder %>% filter(year == 2007)
+combined_data <- ess_with_names %>% left_join(gap_filtered, by = "country")
+
+```
 
 :::
 
@@ -95,8 +216,6 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ::: {.panel-tabset}
 
-### Pre-Requisite
-
 
 ### Use case + Documentation
 
@@ -107,6 +226,25 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ###  How
 
 ### ESS Example
+
+```{r}
+#Simple ESS Example
+ESS_Subset %>% 
+  group_by(gndr) %>% 
+  summarize(mean_age = mean(agea, na.rm = TRUE))
+
+```
+
+```{r}
+# Nuanced ESS examples
+
+trust_summary <- ESS_Subset %>%
+  group_by(cntry) %>%
+  summarize(
+    avg_trust_police = mean(trstplc, na.rm = TRUE),
+    respondents = n()
+  )
+```
 
 :::
 
@@ -114,10 +252,24 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ::: {.panel-tabset}
 
-### Pre-Requisite
-
 
 ### Use case + Documentation
+
+```{r}
+# Let us understand this using gapminder. 
+gap_wide <- gapminder %>%
+  filter(country %in% c("Germany", "Hungary", "Sweden"), 
+         year %in% c(1997, 2002, 2007)) %>%
+  select(country, year, gdpPercap) %>%
+  pivot_wider(names_from = year, values_from = gdpPercap)
+
+# helpful for ggplot!
+gap_long <- gap_wide %>%
+  pivot_longer(cols = `1997`:`2007`, 
+               names_to = "year", 
+               values_to = "gdp")
+
+```
 
 
 ### When 
@@ -126,6 +278,33 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ###  How
 
 ### ESS Example
+
+```{r}
+# Without Pivot
+trust_comparison_nopiv <- ESS_Subset %>%
+  group_by(cntry) %>%
+  summarize(
+    Police = mean(trstplc, na.rm = TRUE),
+    Parliament = mean(trstprl, na.rm = TRUE)
+  ) 
+
+# With Pivot
+# Pivoting helps with making cleaner tables and ggplot graphs! 
+trust_comparison_piv <- ESS_Subset %>%
+  group_by(cntry) %>%
+  summarize(
+    Police = mean(trstplc, na.rm = TRUE),
+    Parliament = mean(trstprl, na.rm = TRUE)
+  ) %>%
+  pivot_longer(
+    cols = c(Police, Parliament), 
+    names_to = "Institution", 
+    values_to = "Avg_Trust_Score"
+  )
+
+```
+
+
 
 :::
 
@@ -134,8 +313,6 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 
 ::: {.panel-tabset}
 
-### Pre-Requisite
-
 
 ### Use case + Documentation
 
@@ -146,26 +323,27 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ###  How
 
 ### ESS Example
-
-:::
-
-
-## RowMeans(``rowMeans()``)
-
-::: {.panel-tabset}
-
-### Pre-Requisite
+```{r}
+#Simple ESS Example
+ESS_Subset <- ESS_Subset %>% 
+  mutate(total_society = trstplc + trstprl)
 
 
-### Use case + Documentation
 
+```
 
-### When 
+```{r}
+# Nuanced ESS examples
+ESS_Subset <- ESS_Subset %>%
+  filter(imwbcnt <= 10, 
+         imueclt <= 10, 
+         imbgeco <= 10) %>% 
+  mutate(immig_index = rowMeans(
+    select(., imwbcnt, imueclt, imbgeco), 
+    na.rm = FALSE 
+  ))
+```
 
-
-###  How
-
-### ESS Example
 
 :::
 
@@ -173,8 +351,6 @@ For this exercise, we have some R cheat sheets and a BINGO! But first, a recap e
 ## Regressions (``lm() & glm()``)
 
 ::: {.panel-tabset}
-
-### Pre-Requisite
 
 
 ### Use case + Documentation

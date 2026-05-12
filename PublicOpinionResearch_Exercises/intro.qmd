@@ -203,7 +203,11 @@ conflicts_prefer(dplyr::filter)
 ```
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> Let us look at this carefully and ask any questions if something is unclear. I will explain the code and results.
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Wait!</strong> Let us look at this carefully and ask any questions if something is unclear. I will explain the code and results.
 :::
 
 ------------------------------------------------------------------------
@@ -461,7 +465,11 @@ Looking at this variable, we **immediately notice a problem!** Can you guess wha
 :::::
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> We have covered a lot now! Let us look at this carefully and ask any questions if something is unclear. Would you like me explain anything again?
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Wait!</strong> We have covered a lot now! Let us look at this carefully and ask any questions if something is unclear. Would you like me explain anything again?
 :::
 
 ### Variable Distributions
@@ -551,16 +559,25 @@ Since the objective is to look at how people respond and understand which variab
 In this exercise, we will compare the distributions of **"safe"** variables with potentially **sensitive** ones. Take 10-15 minutes and attempt the following exercise:
 
 -   Make a histogram of eduyrs (education years)
+
     -   Do you find any suspicious patterns?
+
 -   Make a histogram of lrscale (left-right)
+
     -   Is there a heap at 5 (midpoint)?
     -   Let us look at the variable codebook. Why might this be happening?
--   Make a histogram of imwbcnt ("immigrants make country worse \[0\] or better \[10\]")
--   Are there any spikes at socially desirable values?
--   Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask:
-    -   
 
-        (1) Is there a social referent?
+-   Make a histogram of imwbcnt ("immigrants make country worse \[0\] or better \[10\]")
+
+-   Are there any spikes at socially desirable values?
+
+-   
+
+    ## Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask:
+
+    ```         
+    (1) Is there a social referent?
+    ```
 
     -   
 
@@ -573,6 +590,7 @@ In this exercise, we will compare the distributions of **"safe"** variables with
     -   
 
         (4) Are there social costs?
+
 -   Finally, using the four-conditions framework, let us discuss which variables are likely affected by social desirability? What does a suspicious distribution look like? (heaping at midpoint, avoidance of extreme positions, missing data patterns)
 
 #### Exercise Part 2

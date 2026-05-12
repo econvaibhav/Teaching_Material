@@ -1320,19 +1320,21 @@ $ psu      &lt;dbl&gt; 5433, 5564, 5506, 5436, 5577, 5892, 5505, 5469, 5444, 553
 <span class="header-section-number">1.5.5.1</span> Exercise Part 1</h4>
 <p>In this exercise, we will compare the distributions of <strong>“safe”</strong> variables with potentially <strong>sensitive</strong> ones. Take 10-15 minutes and attempt the following exercise:</p>
 <ul>
-<li>Make a histogram of eduyrs (education years)
+<li>
+<p>Make a histogram of eduyrs (education years)</p>
 <ul>
 <li>Do you find any suspicious patterns?</li>
 </ul>
 </li>
-<li>Make a histogram of lrscale (left-right)
+<li>
+<p>Make a histogram of lrscale (left-right)</p>
 <ul>
 <li>Is there a heap at 5 (midpoint)?</li>
 <li>Let us look at the variable codebook. Why might this be happening?</li>
 </ul>
 </li>
-<li>Make a histogram of imwbcnt (“immigrants make country worse [0] or better [10]”)</li>
-<li>Are there any spikes at socially desirable values?</li>
+<li><p>Make a histogram of imwbcnt (“immigrants make country worse [0] or better [10]”)</p></li>
+<li><p>Are there any spikes at socially desirable values?</p></li>
 <li>
 <h2 id="finally-let-us-apply-the-four-conditions-framework-from-the-lecture-i.e.-for-each-variable-ask" data-number="1.6" class="anchored" data-anchor-id="exercise-part-1">
 <span class="header-section-number">1.6</span> Finally, let us apply the four-conditions framework from the lecture, i.e., for each variable, ask:</h2>
@@ -1349,7 +1351,7 @@ $ psu      &lt;dbl&gt; 5433, 5564, 5506, 5436, 5577, 5892, 5505, 5469, 5444, 553
 </ol></li>
 </ul>
 </li>
-<li>Finally, using the four-conditions framework, let us discuss which variables are likely affected by social desirability? What does a suspicious distribution look like? (heaping at midpoint, avoidance of extreme positions, missing data patterns)</li>
+<li><p>Finally, using the four-conditions framework, let us discuss which variables are likely affected by social desirability? What does a suspicious distribution look like? (heaping at midpoint, avoidance of extreme positions, missing data patterns)</p></li>
 </ul></section><section id="exercise-part-2" class="level4" data-number="1.6.0.1"><h4 data-number="1.6.0.1" class="anchored" data-anchor-id="exercise-part-2">
 <span class="header-section-number">1.6.0.1</span> Exercise Part 2</h4>
 <p>Great job! You have made it to the final section! Here, we will try to see if there are any differences based on the country and what they might mean. To look at different countries together, we are going to use the popular visualization method in R: <strong>Faceting</strong>. To create facets, we use the command <code>facet_wrap(~variable)</code>. Here the <code>~</code> tell us what variable we would like to facet. We will look more into faceting during the visualization session! For now, facets help us plot the data into different panels by splitting it based on the the variable of interest. In our case, we need to run the following command:</p>

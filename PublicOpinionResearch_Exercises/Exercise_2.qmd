@@ -224,7 +224,11 @@ Using tidyverse is cleaner and easy to read. `case_when()` is the cleaner, more 
 Here is an example: <img src="tidyverse_split.png" alt="Tidyverse Splitting" style="max-width:100%;"/>
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> Can you spot a possible mistake in this code snipped?
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+Can you spot a possible mistake in this code snipped?
 :::
 ::::
 :::::
@@ -316,7 +320,11 @@ T1: Finishing Recap and Exercise 1 ✅<br> T2: Splitting Variable of Choice ✅<
 Let us move to the final exercise task!
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Wait!</strong> Let us pause here and ask any questions if something is unclear.
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Wait!</strong> Let us pause here and ask any questions if something is unclear.
 :::
 
 ## Constructed preferences
@@ -330,7 +338,11 @@ Let us move to the final exercise task!
 3.  Are they as correlated as you'd expect? Make a scatter plot.
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>We will do this task together! Let us discuss how to go about this in R!</strong>
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>We will do this task together! Let us discuss how to go about this in R!</strong>
 :::
 
 **Discussion**:
