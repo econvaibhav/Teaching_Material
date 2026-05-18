@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Exercise Booklet",
     "section": "",
-    "text": "Preface\n\n\n\nCourse Booklet: Public Opinion Research\n\n\nThis booklet contains the topics covered and code for the exercise classes in the (SOT86131) Public Opinion Research Methods course. This booklet will help you navigate through the weeks quickly. Separate .R files will also be uploaded on Moodle, containing the code and comments. Feel free to ask any questions in the “Q&A” tab on Moodle.\n\nTopics Covered\n\nWeek 1\n\n1.1 Introduction to R!\n1.2 ESS Data\n1.3 Task List + Independant Work",
+    "text": "Preface\n\n\n\nCourse Booklet: Public Opinion Research\n\n\nThis booklet contains the topics covered and code for the exercise classes in the (SOT86131) Public Opinion Research Methods course. This booklet will help you navigate through the weeks quickly. Separate .R files will also be uploaded on Moodle, containing the code and comments. Feel free to ask any questions in the “Q&A” tab on Moodle.\n\nTopics Covered\n\nWeek 1\n\n1.1 Introduction to R!\n1.2 ESS Data\n1.3 Task List + Independant Work\n\nWeek 2\n\nWeek 1 Recap\nFinishing Exercise 1\nSplitting Variables\nInformation Shortcut Task\nConstructed Preferences\n\nWeek 3\n\nWeek 2 Recap\nBINGO Exercise and Cheat Sheets\nData Wrangling and Important Functions\nVideo Summary\nPreview of Next Class\n\nWeek 4",
     "crumbs": [
       "Preface"
     ]
