@@ -1,19 +1,18 @@
 # Exercise 4
 
-
 ## Recap
 
-In our previous session, we learned how to wrangle data using `dplyr`. We learnt to split the variables, filtered out missing values, recoded variables, and grouped our data to calculate proportions. Now, we are going to take that cleaned data and visualize it using `ggplot2`!! 
+In our previous session, we learned how to wrangle data using `dplyr`. We learnt to split the variables, filtered out missing values, recoded variables, and grouped our data to calculate proportions. Now, we are going to take that cleaned data and visualize it using `ggplot2`!!
 
 The `ggplot2` is the **Grammar of Graphics**. This means we build plots **layer by layer** starting with a blank canvas, adding our data shapes, and then refining the colors, labels, and themes!
 
----
+------------------------------------------------------------------------
 
 ### Recap: Prepping Our Data
 
-Before we can draw a plot, we need our data to be in the right shape. Sometimes we feed the entire dataset as it is and use only the columns of interest, but many times, we create new columns, summarise/group the data and ensure it is in the exact fomrat as how we would like to feed it to the ``ggplot()`` function.  Here is a quick recap of the data wrangling we did to get our ESS data ready, can you understand this code? 
+Before we can draw a plot, we need our data to be in the right shape. Sometimes we feed the entire dataset as it is and use only the columns of interest, but many times, we create new columns, summarise/group the data and ensure it is in the exact fomrat as how we would like to feed it to the `ggplot()` function. Here is a quick recap of the data wrangling we did to get our ESS data ready, can you understand this code?
 
-**Note:** To start with this class, let us run all the commands in Exercise 1, to get the labels and load our existing dataset. 
+**Note:** To start with this class, let us run all the commands in Exercise 1, to get the labels and load our existing dataset.
 
 ```{r,echo=FALSE, message=FALSE}
 library(readr)
@@ -94,7 +93,6 @@ labels <- c(
 ESS_Subset <- set_variable_labels(ESS_Subset, .labels = labels)
 ```
 
-
 ```{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(scales)
@@ -126,9 +124,9 @@ ESS_Cleaned <- ESS_Subset %>%
   )
 ```
 
-
 ## Recap: Creating the Trust Variables and Prop Calculations
-Here we create categorical variables for trust in the police and parliament. We then calculate the percentage of respondents in each trust category, grouped by Country and Political Interest. We use the ``mutate()``, ``case_when()``, ``group_by()``, ``summarise()`` and ``n()`` functions in this case.  
+
+Here we create categorical variables for trust in the police and parliament. We then calculate the percentage of respondents in each trust category, grouped by Country and Political Interest. We use the `mutate()`, `case_when()`, `group_by()`, `summarise()` and `n()` functions in this case.
 
 ```{r}
 
@@ -176,40 +174,42 @@ Question
 ::: card-body
 <p class="card-text">
 
-Why ``.groups = "drop"``? 
+Why `.groups = "drop"`?
 
-When ``dplyr`` (the library from tidyverse which contains the functions to do the data wrangling) summarises grouped data, it keeps the last grouping variable information, i.e., it moves from one pipe (``%>%``) to another with all the information intact. If you didn't drop the groups, your resulting data would still be grouped by the same variables. By using ``.groups = "drop"``, you are wiping the slate clean. The resulting dataframe is completely ungrouped, which prevents accidental math errors in the next steps.
+When `dplyr` (the library from tidyverse which contains the functions to do the data wrangling) summarises grouped data, it keeps the last grouping variable information, i.e., it moves from one pipe (`%>%`) to another with all the information intact. If you didn't drop the groups, your resulting data would still be grouped by the same variables. By using `.groups = "drop"`, you are wiping the slate clean. The resulting dataframe is completely ungrouped, which prevents accidental math errors in the next steps.
+
 </p>
 :::
 :::::
 
-## Let us start with ggplot2! 
+## Let us start with ggplot2!
 
-Now for the fun part. We are going to build our first plot (``p1``), which visualizes trust in the police! We will do this by adding one layer at a time.
+Now for the fun part. We are going to build our first plot (`p1`), which visualizes trust in the police! We will do this by adding one layer at a time.
 
 ### Layer 1: Blank Canvas
-Every ggplot starts with the ``ggplot()`` function. 
+
+Every ggplot starts with the `ggplot()` function.
+
 ```{r}
 ggplot()
 ```
-Simply running the ``ggplot()``, we get a blank grey canvas. This is where we start working from and adding the next layer
+
+Simply running the `ggplot()`, we get a blank grey canvas. This is where we start working from and adding the next layer
 
 ### Layer 2: Adding x,y variables
 
-Here, we define the dataset (``PolTrust``) and the aesthetics (``aes()``). Aesthetics map variables in our data to visual properties (x-axis, y-axis, and fill colors).
+Here, we define the dataset (`PolTrust`) and the aesthetics (`aes()`). Aesthetics map variables in our data to visual properties (x-axis, y-axis, and fill colors).
 
 ```{r}
 PolTrust %>% 
   ggplot(aes(x = PolInterest, y = prop))
 ```
 
+Notice that when we run this, no bars appear yet. It just sets up the grid based on our axes! We can now see our x-axis and y-axis labels.
 
-Notice that when we run this, no bars appear yet. It just sets up the grid based on our axes! We can now see our x-axis and y-axis labels. 
+### Layer 3: `geom_col()`
 
-### Layer 3: ``geom_col()``
-
-Our graph is still meaningless and incorrect, as the proportions we calculated are based on the trust in police varibale; however, with the ``geom_col()`` command, we can now see some column being drawn on the graph! 
-
+Our graph is still meaningless and incorrect, as the proportions we calculated are based on the trust in police varibale; however, with the `geom_col()` command, we can now see some column being drawn on the graph!
 
 ```{r}
 PolTrust %>% 
@@ -225,20 +225,17 @@ Tip!
 ::: card-body
 <p class="card-text">
 
-Tip: Try typing just ``geom_`` and look at the suggestions! You will be able to see all the graphs you can generate in ggplot2 alone! Remember there are always more libraries and many libraries which use ggplot itself, for even more cooler visualizations! 
+Tip: Try typing just `geom_` and look at the suggestions! You will be able to see all the graphs you can generate in ggplot2 alone! Remember there are always more libraries and many libraries which use ggplot itself, for even more cooler visualizations!
 
-Refer to this link to check what each does: [Tidyverse-GGplot2 documentation](https://ggplot2.tidyverse.org/reference/) and this link too: [GGplot2 Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf) 
-
-
+Refer to this link to check what each does: [Tidyverse-GGplot2 documentation](https://ggplot2.tidyverse.org/reference/) and this link too: [GGplot2 Cheat Sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
 
 </p>
 :::
 :::::
 
+### Layer 4: Adding the fill!
 
-### Layer 4: Adding the fill! 
-
-Since we are starting of with a stacked bar graph, the fill layer is very important, i.e., what is each stack in the bar actually demonstrating. We finally have a graph which is starting to make sense and is visualising the data! 
+Since we are starting of with a stacked bar graph, the fill layer is very important, i.e., what is each stack in the bar actually demonstrating. We finally have a graph which is starting to make sense and is visualising the data!
 
 ```{r}
 PolTrust %>% 
@@ -248,9 +245,9 @@ PolTrust %>%
 
 ```
 
-### Layer 5: Ordering 
+### Layer 5: Ordering
 
-If you notice in the graph, the factors (High Trust, Low Trust and Moderate Trust) are all jumbled! It is not flowing from Low-High or High-Low. The same is not true for the "Political Interest" variables: they are ordered correctly. However, we can define thier order too. Let us make correct the order. 
+If you notice in the graph, the factors (High Trust, Low Trust and Moderate Trust) are all jumbled! It is not flowing from Low-High or High-Low. The same is not true for the "Political Interest" variables: they are ordered correctly. However, we can define thier order too. Let us make correct the order.
 
 ```{r}
 PolTrust %>% 
@@ -261,7 +258,7 @@ PolTrust %>%
 
 ```
 
-Notice what happens now: Since we have not specified the title, legend etc., they take the code along with it for the legend. There is also a **mistake in one of the ``political interest`` and ``trust_police`` variables.** Notice how such mistakes change the graph! (The y axis is still wrong, we will correct it in layer 8)
+Notice what happens now: Since we have not specified the title, legend etc., they take the code along with it for the legend. There is also a **mistake in one of the `political interest` and `trust_police` variables.** Notice how such mistakes change the graph! (The y axis is still wrong, we will correct it in layer 8)
 
 ### Layer 6 Adding the Title and other labels
 
@@ -281,9 +278,10 @@ PolTrust %>%
 
 
 ```
- Perfect! It is already starting to look great! We have the basic graph ready! We can already start interpreting what is happening. But, there are still many aesthetic changes we can make. First, since we are also interested in the differences between countries, let us add the 3 countries. For this, we can use ``facetting()``
 
-### Layer 7: Facetting 
+Perfect! It is already starting to look great! We have the basic graph ready! We can already start interpreting what is happening. But, there are still many aesthetic changes we can make. First, since we are also interested in the differences between countries, let us add the 3 countries. For this, we can use `facetting()`
+
+### Layer 7: Facetting
 
 ```{r}
 PolTrust %>% 
@@ -305,7 +303,8 @@ Great! We now have division between countries! Notice how the y-axis starts to m
 
 ### Layer 8: Percentage in Y axis
 
-Right now, the Y-axis shows decimals (0.25, 0.50). We can fix this with ``scale_y_continuous()`` function and the ``scales()`` function from the ``scales()`` library. 
+Right now, the Y-axis shows decimals (0.25, 0.50). We can fix this with `scale_y_continuous()` function and the `scales()` function from the `scales()` library.
+
 ```{r}
 PolTrust %>% 
   ggplot(aes(x = factor(PolInterest, levels = c("Very", "Quite", "Hardly","Not at all")), 
@@ -323,11 +322,9 @@ PolTrust %>%
   facet_wrap(~ Country)
 ```
 
-
 ### Layer 9: Adding Text Labels
 
-Perfect! the bars are great, but exact numbers make the chart easier to read. We add ``geom_text()`` to place the percentage labels directly onto the bars. We use ``position_stack(vjust = 0.5)`` to center the text inside each colored block. Try changing the values to different numbers to check what happens! 
-
+Perfect! the bars are great, but exact numbers make the chart easier to read. We add `geom_text()` to place the percentage labels directly onto the bars. We use `position_stack(vjust = 0.5)` to center the text inside each colored block. Try changing the values to different numbers to check what happens!
 
 ```{r}
 PolTrust %>% 
@@ -351,7 +348,7 @@ PolTrust %>%
 
 ### Layer 10: Final Aesthetics Code
 
-Yay! The bars are now much easier to read! Lets just add some final touch ups and play around with different themes. I have a prepared theme which I use for the alignment of the titles, making labels bold etc. I have shared that theme here as well. Let us use it! I also use the ``theme_bw`` all the time. You can try out some different themes to check out what happens! 
+Yay! The bars are now much easier to read! Lets just add some final touch ups and play around with different themes. I have a prepared theme which I use for the alignment of the titles, making labels bold etc. I have shared that theme here as well. Let us use it! I also use the `theme_bw` all the time. You can try out some different themes to check out what happens!
 
 ```{r}
 # Viz Theme 
@@ -390,7 +387,7 @@ PolTrust %>%
 
 ### Layer 11: Changing color
 
-To change the color from the default ones, we can use the ``scale_fill_manual()`` to specify exact hex codes for this. Remember that if you use something instead of ``fill()``, for example color, to define what different colors mean in the plot, you must use the corresponding scale, in the case of color, it will be ``scale_color_manual()``
+To change the color from the default ones, we can use the `scale_fill_manual()` to specify exact hex codes for this. Remember that if you use something instead of `fill()`, for example color, to define what different colors mean in the plot, you must use the corresponding scale, in the case of color, it will be `scale_color_manual()`
 
 ```{r}
 # Viz Theme 
@@ -428,10 +425,10 @@ PolTrust %>%
   theme_graphs
 
 ```
+
 ### Layer 12: Patchwork
 
-Now that we understand the layers, we can easily generate a second plot (p2) for Trust in Parliament, using the exact same structure. Instead of showing these two plots separately, we can stack them using the patchwork library. By simply using the ``/`` division operator, R knows we want ``p1`` on top of ``p2``.
-
+Now that we understand the layers, we can easily generate a second plot (p2) for Trust in Parliament, using the exact same structure. Instead of showing these two plots separately, we can stack them using the patchwork library. By simply using the `/` division operator, R knows we want `p1` on top of `p2`.
 
 ```{r}
 p1 <- ggplot(PolTrust,
@@ -484,6 +481,7 @@ p2 <- ggplot(ParTrust,
 library(patchwork)
 p1/p2
 ```
+
 ::::::: row
 :::::: col-sm-6
 ::::: {.card .border-primary .mb-3 style="max-width: 30rem;"}
@@ -493,15 +491,9 @@ Independent Tasks: ggplot2 & dplyr
 
 ::: {.card-body .text-primary}
 <p class="card-text">
-T1: Change titles and source captions. ⬜<br> 
-T2: Apply a new color palette (Viridis) or manually add hex codes. ⬜<br> 
-T3: Test `theme_minimal()` and `theme_classic()` and other themes. ⬜<br> 
-T4: Move legend to the right and unhide in p1. ⬜ <br>
-T5: Flip coordinates (`coord_flip()`) ⬜<br>
-T6: Change facet layout (grid vs. single-column wrap). ⬜<br>
-T7: Recode Trust into two categories instead of three. ⬜<br>
-T8: Filter for Female respondents and update plots. ⬜<br>
-T9: Make new plots and arrange the plots side-by-side
+
+T1: Change titles and source captions. ⬜<br> T2: Apply a new color palette (Viridis) or manually add hex codes. ⬜<br> T3: Test `theme_minimal()` and `theme_classic()` and other themes. ⬜<br> T4: Move legend to the right and unhide in p1. ⬜ <br> T5: Flip coordinates (`coord_flip()`) ⬜<br> T6: Change facet layout (grid vs. single-column wrap). ⬜<br> T7: Recode Trust into two categories instead of three. ⬜<br> T8: Filter for Female respondents and update plots. ⬜<br> T9: Make new plots and arrange the plots side-by-side
+
 </p>
 :::
 :::::
@@ -573,7 +565,8 @@ ggplot(ESS_Cleaned, aes(x = nwspol, y = inwtm)) +
   theme(legend.position = 'right') +
   guides(fill = guide_legend(override.aes = list(shape = 21)))
 ```
-### Adding text/arrows in a plot 
+
+### Adding text/arrows in a plot
 
 ```{r}
 library(ggtext)
@@ -616,7 +609,6 @@ PolTrust %>%
   )
 ```
 
-
 ```{r}
 library(ggplot2)
 
@@ -650,12 +642,12 @@ ggplot(ESS_Cleaned, aes(x = nwspol, y = inwtm)) +
 
 ### For the Future
 
-Want to continue having fun making cool visualizations? Check out the [ggpattern](https://trevorldavis.com/R/ggpattern/) page! or refer to this channel for more ideas: [Albert Rapp](https://www.youtube.com/@rappa753). 
+Want to continue having fun making cool visualizations? Check out the [ggpattern](https://trevorldavis.com/R/ggpattern/) page! or refer to this channel for more ideas: [Albert Rapp](https://www.youtube.com/@rappa753).
 
-These books have a good guide to what we are doing in class too: 
+These books have a good guide to what we are doing in class too:
 
-1. [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/)
-2. [R for Data Science](https://r4ds.hadley.nz/)
+1.  [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/)
+2.  [R for Data Science](https://r4ds.hadley.nz/)
 
 ## Draw your own Graph!
 
@@ -668,12 +660,11 @@ Exercise 3: Draw Your Own Graph! 🎨
 
 ::: {.card-body .text-dark}
 <p class="card-text">
+
 <strong>Let us step away from the keyboard! Look at your data, grab some paper (and colors!), and sketch what you want to build. Then, make it in R. I have some highlighters, different color pens and markers to help you!</strong><br><br>
 
-T1: Sketch your ideal plot on paper first. ⬜<br> 
-T2: Identify the variables and filter/clean your data in R. ⬜<br> 
-T3: Build the base plot using your chosen geoms (points, ridges, etc.). ⬜<br> 
-T4: Add an annotation (arrow + text) if needed to highlight a specific data point. ⬜<br>
+T1: Sketch your ideal plot on paper first. ⬜<br> T2: Identify the variables and filter/clean your data in R. ⬜<br> T3: Build the base plot using your chosen geoms (points, ridges, etc.). ⬜<br> T4: Add an annotation (arrow + text) if needed to highlight a specific data point. ⬜<br>
+
 </p>
 :::
 :::::
@@ -682,7 +673,7 @@ T4: Add an annotation (arrow + text) if needed to highlight a specific data poin
 
 # Making Tables
 
-Visualizations are incredibly powerful, but sometimes you need to display exact numbers, data dictionaries, or descriptive statistics. Standard R console output isn't exactly pretty. To fix this, we use the ``kableExtra`` package to build highly customized, HTML-formatted tables that look fantastic in your RMarkdown reports!
+Visualizations are incredibly powerful, but sometimes you need to display exact numbers, data dictionaries, or descriptive statistics. Standard R console output isn't exactly pretty. To fix this, we use the `kableExtra` package to build highly customized, HTML-formatted tables that look fantastic in your RMarkdown reports!
 
 ### Table 1: Missing & Unique Values
 
@@ -773,6 +764,3 @@ desc_stats %>%
     general_title = ""
   )
 ```
-
-
-

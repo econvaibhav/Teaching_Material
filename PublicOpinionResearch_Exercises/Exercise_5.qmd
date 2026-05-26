@@ -1,0 +1,58 @@
+# Exercise 5
+
+## Recap
+
+Hopefully the Data Workshops were helpful! To recap, let us go through the independent tasks shared last week (It is not required to write code now, these are only for discussion and reflection). Do you how to solve these?
+
+:::::: col-sm-6
+::::: {.card .border-primary .mb-3 style="max-width: 50rem;"}
+::: card-header
+Independent Work
+:::
+
+::: {.card-body .text-primary}
+<p class="card-text">
+
+IT1: Create a new environment to fight the fear of starting on a blank slate (make sure to save your code beforehand!). Start writing your code in an .Rmd or .R file.
+
+IT2: Look at the ESS Data Portal, choose relevant variables, and load the data into your R environment. Load the tidyverse package into the environment as well.
+
+IT3: Practice key commands such as glimpse(), table(), prop.table(), and using the \$ operator.
+
+IT4: Look at the summaries of some variables you are interested in. Refer to the ESS codebook for more information on the variables as well.
+
+IT5: Make a quick, simple plot of any variable you are interested in (eg, a bar graph, density plot, etc.).
+
+IT6: Using table(), unique(), or summary(), check if the variable has any strange survey codes (eg, 77, 88, etc.).
+
+IT7: Splitting Variables: Use mutate() and case_when() to create a categorical text variable.
+
+IT8: Numeric Bins: Split the age variable into different categories using cut().
+
+IT9: Filtering Data: Isolate specific countries and remove non-response survey codes (eg, 77, 88) using filter().
+
+IT10: Filtering Data: Use %in% to filter for specific countries alongside valid survey answers.
+
+IT11: Aggregations: Calculate group means using group_by() and summarize().
+
+IT12: Transformations: Create an immigration index using rowMeans().
+
+IT13: R BINGO: Complete all remaining squares on your R BINGO card. This will cover everything important in data wrangling!
+
+IT14: Look at all 12 layers in Exercise 4 for ggplot. Try to replicate this.
+
+IT15: Add small changes in different layers to check the differences and see what each function or number does (refer to the end of section 4.3.12 in the booklet for a guide on some changes you can make).
+
+IT16: Adjust the layers according to your visualization idea (try different visualizations, for example, boxplots, heatmaps, etc.).
+
+IT17: Work on section 4.5 of the booklet: Draw your own graph -\> make it in R!
+
+IT18: Extra: Experiment with other libraries by adding a specific text in the graph using annotate(), try drawing a box or arrow to highlight particular parts of a visualization, or try testing ggpattern().
+
+</p>
+:::
+:::::
+::::::
+
+
+

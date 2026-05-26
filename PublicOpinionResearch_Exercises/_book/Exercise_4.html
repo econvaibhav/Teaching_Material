@@ -2,10 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>4&nbsp; Exercise 4 – Exercise Booklet</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -61,18 +64,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Exercise_5.html" rel="next">
 <link href="./Exercise_3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9b9870c306d8f636f4d8c21b0f16d0d3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-12dbc0c64bc7d78fb3aaa13411330519.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -156,6 +159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./Exercise_4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercise 4</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Exercise_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercise 5</span></span></a>
   </div>
 </li>
     </ul>
@@ -312,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p class="card-text">
 </p>
 <p>Why <code>.groups = "drop"</code>?</p>
-When <code>dplyr</code> (the library from tidyverse which contains the functions to do the data wrangling) summarises grouped data, it keeps the last grouping variable information, i.e., it moves from one pipe (<code>%&gt;%</code>) to another with all the information intact. If you didn’t drop the groups, your resulting data would still be grouped by the same variables. By using <code>.groups = "drop"</code>, you are wiping the slate clean. The resulting dataframe is completely ungrouped, which prevents accidental math errors in the next steps.
+<p>When <code>dplyr</code> (the library from tidyverse which contains the functions to do the data wrangling) summarises grouped data, it keeps the last grouping variable information, i.e., it moves from one pipe (<code>%&gt;%</code>) to another with all the information intact. If you didn’t drop the groups, your resulting data would still be grouped by the same variables. By using <code>.groups = "drop"</code>, you are wiping the slate clean. The resulting dataframe is completely ungrouped, which prevents accidental math errors in the next steps.</p>
 
 </div>
 </div>
@@ -658,8 +667,9 @@ When <code>dplyr</code> (the library from tidyverse which contains the functions
 </div>
 <div class="card-body text-primary">
 <p class="card-text">
-T1: Change titles and source captions. ⬜<br> T2: Apply a new color palette (Viridis) or manually add hex codes. ⬜<br> T3: Test <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code> and other themes. ⬜<br> T4: Move legend to the right and unhide in p1. ⬜ <br> T5: Flip coordinates (<code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code>) ⬜<br> T6: Change facet layout (grid vs.&nbsp;single-column wrap). ⬜<br> T7: Recode Trust into two categories instead of three. ⬜<br> T8: Filter for Female respondents and update plots. ⬜<br> T9: Make new plots and arrange the plots side-by-side
 </p>
+<p>T1: Change titles and source captions. ⬜<br> T2: Apply a new color palette (Viridis) or manually add hex codes. ⬜<br> T3: Test <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code> and other themes. ⬜<br> T4: Move legend to the right and unhide in p1. ⬜ <br> T5: Flip coordinates (<code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code>) ⬜<br> T6: Change facet layout (grid vs.&nbsp;single-column wrap). ⬜<br> T7: Recode Trust into two categories instead of three. ⬜<br> T8: Filter for Female respondents and update plots. ⬜<br> T9: Make new plots and arrange the plots side-by-side</p>
+
 </div>
 </div>
 </div>
@@ -842,7 +852,8 @@ T1: Change titles and source captions. ⬜<br> T2: Apply a new color palette (Vi
 <p class="card-text">
 </p>
 <p><strong>Let us step away from the keyboard! Look at your data, grab some paper (and colors!), and sketch what you want to build. Then, make it in R. I have some highlighters, different color pens and markers to help you!</strong><br><br></p>
-T1: Sketch your ideal plot on paper first. ⬜<br> T2: Identify the variables and filter/clean your data in R. ⬜<br> T3: Build the base plot using your chosen geoms (points, ridges, etc.). ⬜<br> T4: Add an annotation (arrow + text) if needed to highlight a specific data point. ⬜<br>
+<p>T1: Sketch your ideal plot on paper first. ⬜<br> T2: Identify the variables and filter/clean your data in R. ⬜<br> T3: Build the base plot using your chosen geoms (points, ridges, etc.). ⬜<br> T4: Add an annotation (arrow + text) if needed to highlight a specific data point. ⬜<br></p>
+
 </div>
 </div>
 </div>
@@ -1741,6 +1752,9 @@ T1: Sketch your ideal plot on paper first. ⬜<br> T2: Identify the variables an
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Exercise_5.html" class="pagination-link" aria-label="Exercise 5">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Exercise 5</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

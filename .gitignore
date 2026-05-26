@@ -1,4 +1,27 @@
+# Virtual Environments
+dd_env/
+venv/
+env/
+.env/
+
+# Python Cache (These are hidden compiled files that waste space)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+
+# OS Specific junk
+.DS_Store
+
+# Editor directories and files
+.vscode/
+
+
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+.positai

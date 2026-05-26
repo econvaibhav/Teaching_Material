@@ -7,19 +7,25 @@ This booklet contains the topics covered and code for the **exercise** classes i
 ### Topics Covered
 
 1.  **Week 1**
-    -   1.1 Introduction to R!
-    -   1.2 ESS Data
-    -   1.3 Task List + Independant Work
+    - 1.1 Introduction to R!
+    - 1.2 ESS Data
+    - 1.3 Task List + Independant Work
 2.  **Week 2**
-    -   Week 1 Recap
-    -   Finishing Exercise 1
-    -   Splitting Variables
-    -   Information Shortcut Task
-    -   Constructed Preferences
+    - Week 1 Recap
+    - Finishing Exercise 1
+    - Splitting Variables
+    - Information Shortcut Task
+    - Constructed Preferences
 3.  **Week 3**
-    -   Week 2 Recap
-    -   BINGO Exercise and Cheat Sheets
-    -   Data Wrangling and Important Functions
-    -   Video Summary
-    -   Preview of Next Class
+    - Week 2 Recap
+    - BINGO Exercise and Cheat Sheets
+    - Data Wrangling and Important Functions
+    - Video Summary
+    - Preview of Next Class
 4.  **Week 4**
+    - Week 3 Recap 
+    - Layer 1:12 Visualizations
+    - Different Visualization Examples
+    - Draw your own Graph! 
+5.  **Week 5**
+    - 
