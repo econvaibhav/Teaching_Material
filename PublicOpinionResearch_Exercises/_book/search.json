@@ -458,5 +458,55 @@
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercise 5</span>"
     ]
+  },
+  {
+    "objectID": "Exercise_5.html#dag-discussion-trust-in-institutions",
+    "href": "Exercise_5.html#dag-discussion-trust-in-institutions",
+    "title": "5  Exercise 5",
+    "section": "5.2 DAG Discussion: Trust in Institutions",
+    "text": "5.2 DAG Discussion: Trust in Institutions",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercise 5</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_5.html#dag-discussion-your-own-idea",
+    "href": "Exercise_5.html#dag-discussion-your-own-idea",
+    "title": "5  Exercise 5",
+    "section": "5.3 DAG Discussion: Your Own Idea!",
+    "text": "5.3 DAG Discussion: Your Own Idea!\n\n\n\n\nExercise: Draw, Understand and Explain Your Own Idea!\n\n\n\nIf you plan to use survey responses for your master’s thesis or final assignment, start by choosing your core topic. The goal for this exercise is to come up with a coherent research question/pick an existing research question you are working on and based on the existing literature, use public opinion data like the ESS, and map out your assumptions/hypothesis visually using a DAG to clarify the causal flow. Finally, we will bring it all together by testing your hypothesis and DAG workflow in R!\nT1: Come up with a research question which can be answered using survey data. ⬜ T2: Draw a DAG to map out the causal pathways and control variables between your main concepts. ⬜ T3: Let us Discuss. ⬜",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercise 5</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_5.html#dag-discussion-key-themes-and-ess-data",
+    "href": "Exercise_5.html#dag-discussion-key-themes-and-ess-data",
+    "title": "5  Exercise 5",
+    "section": "5.4 DAG Discussion: Key Themes and ESS Data",
+    "text": "5.4 DAG Discussion: Key Themes and ESS Data\nImportant Links:\n\nHere is a link to the “European Social Survey” homepage.\nYou can read about the survey methodology, resources and news on ESS, on the link shared above. To check for different rounds of the ESS, data access, how data was collected for your country of interest, i.e., survey sampling strategy, refer to this link: ESS Data (This includes information for all ESS rounds).\nFor more information of ESS Round 11, 2023, refer to this link: ESS11. For information on country documentation, click on the “Country Documentation” drop-down.\nFor documentation on all the variables used in ESS Round 11, refer to this link Variable Documentation (you can also download the entire ESS Round 11 Dataset on this page but it is not recommended)\n“ESS Data Portal”, which allows us to build our own custom dataset! Link to Data Portal.\n\n\n\n\n\nExercise: Suggest key themes you find Interesting!\n\n\n\nLet us stop and think about some ESS relevant themes, which are interesting to us. Based on these themes, we will navigate the ESS Data Portal to select necessary variables, download the dataset start working towards answering our research question!\nT1: We navigate the ESS Data Portal to select and download our variables.⬜ T2: Load, filter, and clean our dataset in R. ⬜ T3: Visualise as a table or graph!. ⬜ T4: Create a DAG to highlight the process ⬜",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercise 5</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_5.html#dag-discussion-life-satisfaction-political-trust-immigration-and-voting",
+    "href": "Exercise_5.html#dag-discussion-life-satisfaction-political-trust-immigration-and-voting",
+    "title": "5  Exercise 5",
+    "section": "5.2 DAG Discussion: Life Satisfaction, Political Trust, Immigration and Voting",
+    "text": "5.2 DAG Discussion: Life Satisfaction, Political Trust, Immigration and Voting\n\n\n\n\nExercise: Draw a DAG\n\n\n\nWhen you analyze the relationship between life dissatisfaction and voting for populist radical right parties (PRRPs) in the ESS. You find a strong correlation. Then: \nT1: How to connect these nodes? Life dissatisfaction, political distrust, anti-immigration sentiment, PRRP vote and other socio-demographic variables. ⬜ T2: Are political distrust and anti-immigration sentiment confounders, mediators, or colliders?. ⬜\n\n\n\n\n\n\n5.2.1 Answer\n\nEnter Password:\n\n Submit\n\n\nWrong password!\n\n\n\nAnswer:\n\n\n\nLindholm, A., Lutz, G., & Green, E. G. (2025). Life dissatisfaction and the right-wing populist vote: Evidence from the European Social Survey. American Behavioral Scientist, 69(5), 604-624.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Exercise 5</span>"
+    ]
+  },
+  {
+    "objectID": "Exercise_5.html#markdown",
+    "href": "Exercise_5.html#markdown",
+    "title": "5  Exercise 5",
+    "section": "5.5 ```markdown",
+    "text": "5.5 ```markdown\ntitle: “5 Exercise 5” format: html: theme: sandstone —\n\n5.5.1 🔓 Reveal Answer\n\nEnter Password:\n\n Submit\n\n\nWrong password!\n\n\nAnswer: A -&gt; B\n\n\n\n:::",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>[5]{.chapter-number}  [Exercise 5]{.chapter-title}</span>"
+    ]
   }
 ]
