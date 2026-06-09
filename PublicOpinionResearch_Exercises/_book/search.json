@@ -508,5 +508,25 @@
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>[5]{.chapter-number}  [Exercise 5]{.chapter-title}</span>"
     ]
+  },
+  {
+    "objectID": "solutions.html",
+    "href": "solutions.html",
+    "title": "6  Independant Task: Solutions",
+    "section": "",
+    "text": "6.1 Solutions to Independant Tasks 1:4\n1. Starting from an empty .R file!\nLet us start from an empty .R file. You can go to File -&gt; New File -&gt; R Script/R Markdown.\n2. Deciding Research Question and Loading Data\nLooking at the ESS Data Portal Link to Data Portal, I found these variables interesting and decided to work on these for the independant task solutions:\nReading through the ESS Variables, I was interested in looking at if there were any social media relevant variables in the ESS Dataset.\nUsing the search bar in the Portal, I looked for interesting variables relevant to social media and, found this variable:\nWith this, I thought it would be interesting to combine the “Institutional Trust” Variables and work on the independent tasks.\nThese are the variables I downlaoded: https://ess.sikt.no/en/data-builder/?rounds=11.1-3_9-11&seriesVersion=977&tab=variables&variables=0.2_3+1.0.47_51_57-64+3.1_62_88+4.0.56_74+9.28\nThis leads us to a simple research question: “Does heavy internet use degrade institutional trust, and is this effect accelerated for people who actively post about politics online?”",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independant Task: Solutions</span>"
+    ]
+  },
+  {
+    "objectID": "solutions.html#solutions-to-independant-tasks-14",
+    "href": "solutions.html#solutions-to-independant-tasks-14",
+    "title": "6  Independant Task: Solutions",
+    "section": "",
+    "text": "Creating a New .R file for Independant Tasks\n\n\n\n\n\n\n\npstplonl - Posted or shared anything about politics online last 12 months. (Question: And still thinking about different ways of trying to improve things in [country] or help prevent things from going wrong, during the last 12 months, have you done any of the following? Have you… …posted or shared anything about politics online, for example on blogs, via email or on social media such as Facebook or Twitter?)\nnetustm - Internet use, how much time on typical day, in minutes (Question: Question: On a typical day, about how much time do you spend using the internet on a computer, tablet, smartphone or other device, whether for work or personal use?)\n\n\n\nTrust Variables - This includes variables we have been working with, such as trstprl, trstlgl,trstplc etc. (Question:Using this card, please tell me on a score of 0-10 how much you personally trust each of the institutions I read out. 0 means you do not trust an institution at all, and 10 means you have complete trust. Firstly… …political parties?)\n\n\n\n\n\n\nIndependent Tasks: 5-",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Independant Task: Solutions</span>"
+    ]
   }
 ]

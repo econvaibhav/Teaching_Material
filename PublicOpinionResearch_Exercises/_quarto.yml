@@ -10,6 +10,7 @@ book:
     - Exercise_3.qmd
     - Exercise_4.qmd
     - Exercise_5.qmd
+    - solutions.qmd
 
 bibliography: references.bib
 
