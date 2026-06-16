@@ -1,0 +1,309 @@
+# Exercise 6
+
+## Polarization in Public Opinion
+
+Let us play around with this: [Link to test Different Varaible Combinations](https://ess.sikt.no/en/datafile/242aaa39-3bbb-40f5-98bf-bfb1ce53d8ef?tab=2&elems=5e460d8c-b4ea-4629-86fa-ae40ed97b0aa.797340ea-3331-4bdd-8a82-dd29dab975a7)
+
+
+Link to [Work with the same data ](https://ess.sikt.no/en/data-builder/?rounds=11.11&seriesVersion=977&tab=variables&variables=0.0_3+1.0.30_68-73+1.1.0.7_15+1.1.1.51+3.1_87_88+9.28)
+
+### Calculating and Visualisation of Polarization 
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(ggcorrplot)
+library(readr)
+library(tidyverse)
+library(ggthemes)
+
+df <- read_csv("~/Downloads/ESS11e04_1-subset (6)/ESS11e04_1-subset.csv")
+```
+
+
+```{r}
+library(tidyverse)
+
+df_pol_group <- df %>%
+  mutate(
+    Political_Bloc = case_when(
+      prtvgde2 %in% c(2, 3, 4) ~ "Left",    # SPD, Die Linke, Greens
+      prtvgde2 %in% c(1, 5)    ~ "Center",  # CDU/CSU, FDP
+      prtvgde2 %in% c(6, 7)    ~ "Right",   # AfD, FV
+      TRUE ~ NA_character_                  # Excludes 55, 66, 77, 88, 99
+    )
+  ) %>%
+  mutate(Political_Bloc = factor(Political_Bloc, levels = c("Left", "Center", "Right"))) %>%
+  drop_na(Political_Bloc, imbgeco) %>% 
+  filter(imbgeco <= 10) %>% 
+  filter(impcntr <= 4)
+
+
+bloc_distribution <- df_pol_group %>%
+  count(Political_Bloc) %>%
+  mutate(Percentage = round((n / sum(n)) * 100, 1))
+
+print(bloc_distribution)
+
+ggplot(df_pol_group, aes(x = imbgeco, fill = Political_Bloc)) +
+  geom_density(alpha = 0.5, color = "black") + 
+  scale_fill_manual(values = c(
+    "Left" = "#E41A1C",   # Standard Red
+    "Center" = "#999999", # Neutral Grey
+    "Right" = "#377EB8"   # Standard Blue
+  )) +
+  theme_minimal() +
+  labs(
+    title = "Immigration Attitudes by Political Bloc in Germany",
+    x = "0 (Bad for Economy)to 10 (Good for Economy)",
+    y = "Density (Concentration of Voters)",
+    fill = "Political Bloc"
+  ) +
+  theme(
+    legend.position = "top",
+    plot.title = element_text(face = "bold")
+  )
+
+ggplot(df_pol_group, aes(x = impcntr, fill = Political_Bloc)) +
+  geom_density(alpha = 0.5, color = "black") + 
+  scale_fill_manual(values = c(
+    "Left" = "#E41A1C",   # Standard Red
+    "Center" = "#999999", # Neutral Grey
+    "Right" = "#377EB8"   # Standard Blue
+  )) +
+  theme_minimal() +
+  labs(
+    title = "Immigration from Poor Countries",
+    x = "1 (Many) to 4 (None)",
+    y = "Density (Concentration of Voters)",
+    fill = "Political Bloc"
+  ) +
+  theme(
+    legend.position = "top",
+    plot.title = element_text(face = "bold")
+  )
+```
+
+### Using the Left-Right Scale 
+
+```{r}
+df_ideology <- df %>%
+  filter(lrscale <= 10) %>% 
+  mutate(
+    Ideology = case_when(
+      lrscale %in% 0:3 ~ "Left",
+      lrscale %in% 4:6 ~ "Center",
+      lrscale %in% 7:10 ~ "Right"
+    )
+  ) %>%
+  mutate(Ideology = factor(Ideology, levels = c("Left", "Center", "Right"))) %>%
+  drop_na(Ideology) 
+
+
+ideology_distribution <- df_ideology %>%
+  count(Ideology) %>%
+  mutate(Percentage = round((n / sum(n)) * 100, 1))
+
+print(ideology_distribution)
+
+theme_graphs <- theme(
+  axis.text.x = element_text(face = "bold"),
+  axis.title.x = element_text(color = "black", size = 10, face = "bold"),
+  axis.title.y = element_text(color = "black", size = 10, face = "bold"),
+  plot.title = element_text(color = "black", size = 12, hjust = 0.5),
+  plot.subtitle = element_text(color = "black", size = 8, hjust = 0.5),
+  plot.caption = element_text(face = "italic"),
+  legend.position = 'bottom'
+  
+)
+
+ggplot(ideology_distribution, aes(x = Ideology, y = Percentage, fill = Ideology)) +
+  geom_col(color = "black", alpha = 0.8) +
+  geom_text(aes(label = paste0(Percentage, "%")), vjust = -0.5, size = 5, fontface = "bold") +
+  scale_fill_manual(values = c(
+    "Left"   = "#E41A1C", 
+    "Center" = "#999999", 
+    "Right"  = "#377EB8"
+  )) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  theme_minimal() +
+  labs(
+    title = "Ideological Distribution of Respondents",
+    subtitle = "Based on self-placement (0-10 scale)",
+    x = "Ideology Groups",
+    y = "Percentage of Respondents (%)"
+  ) +
+  theme_graphs
+
+```
+
+
+
+## How to estimate corellations 
+
+
+```{r}
+#About ggcorrplot:
+#ggcorrplot(
+#  corr,
+#  method = c("square", "circle"),
+#  type = c("full", "lower", "upper"),
+#  ggtheme = ggplot2::theme_minimal,
+#  title = "",
+#  show.legend = TRUE,
+#  legend.title = "Corr",
+#  show.diag = NULL,
+#  colors = c("blue", "white", "red"),
+#  outline.color = "gray",
+#  hc.order = FALSE,
+#  hc.method = "complete",
+#  lab = FALSE,
+#  lab_col = "black",
+#  lab_size = 4,
+#  p.mat = NULL,
+#  sig.level = 0.05,
+#  insig = c("pch", "blank"),
+#  pch = 4,
+#  pch.col = "black",
+#  pch.cex = 5,
+#  tl.cex = 12,
+#  tl.col = "black",
+#  tl.srt = 45,
+#  digits = 2,
+#  as.is = FALSE
+#)
+
+#cor_pmat(x, ...)
+```
+
+
+
+```{r}
+ESS_Subset <- df %>%
+  select(nwspol, imsmetn, imdfetn, impcntr, imbgeco, imueclt, imwbcnt, wrclmch, agea) %>%
+  drop_na() 
+
+new_ess_names <- c("News Consumption", 
+                   "Immigrants: Same Race/Ethnicity", 
+                   "Immigrants: Diff Race/Ethnicity", 
+                   "Immigrants: Poorer Countries", 
+                   "Immigration: Good for Economy", 
+                   "Immigration: Enriches Culture", 
+                   "Immigration: Better Place to Live", 
+                   "Worried about Climate Change", 
+                   "Age (Years)")
+
+colnames(ESS_Subset) <- new_ess_names
+
+
+ess_cor_mat <- round(cor(ESS_Subset, use = "pairwise.complete.obs"), 2)
+ess_cor_mat
+
+ess_cor_pmat <- cor_pmat(ESS_Subset)
+ess_cor_pmat
+
+ggcorrplot(ess_cor_mat, type = "lower", outline.col = 'black')
+
+ggcorrplot(ess_cor_mat,
+           type = "lower",
+           p.mat = ess_cor_pmat,
+           outline.col = "black",
+           ggtheme = ggthemes::theme_clean(),
+           colors = c("red", "yellow", "blue"),
+           lab = TRUE)
+
+
+ggcorrplot(ess_cor_mat,
+           type = "lower",
+           p.mat = ess_cor_pmat,
+           sig.level = 0.05,
+           insig = "blank",
+           outline.col = "black",
+           ggtheme = ggthemes::theme_clean(),
+           colors = c("red", "white", "blue"),
+           lab = TRUE,
+           lab_size = 4, 
+           title = 'Correlations: Demographics and Attitudes in ESS Data')
+```
+
+
+
+Let is make dummary variables for each party and then plot the correlations
+
+```{r}
+table(df$prtvgde2)
+# We can check what each number refers to on the ESS Portal
+
+df_parties <- df %>%
+  filter(prtvgde2 %in% 1:8) %>% 
+  mutate(
+    # Create binary dummy variables for the major parties
+    CDU_CSU = ifelse(prtvgde2 == 1, 1, 0),
+    SPD     = ifelse(prtvgde2 == 2, 1, 0),
+    Linke   = ifelse(prtvgde2 == 3, 1, 0),
+    Greens  = ifelse(prtvgde2 == 4, 1, 0),
+    FDP     = ifelse(prtvgde2 == 5, 1, 0),
+    AfD     = ifelse(prtvgde2 == 6, 1, 0), 
+    FV      = ifelse(prtvgde2 == 7, 1, 0),
+    DieBasis      = ifelse(prtvgde2 == 8, 1, 0),
+    DiePartie      = ifelse(prtvgde2 == 9, 1, 0),
+  ) %>%
+  select(CDU_CSU, SPD, Linke, Greens, FDP, AfD, FV, DieBasis, DiePartie, 
+         imsmetn, imdfetn, impcntr, imbgeco, imueclt, imwbcnt) %>%
+  drop_na() 
+
+colnames(df_parties)[10:15] <- c(
+  "Same Race/Ethnicity", 
+  "Diff Race/Ethnicity",
+  "Poorer Countries",
+  "Good for Economy",
+  "Enriches Culture",
+  "Better Place to Live")
+
+party_cor_mat <- round(cor(df_parties), 2)
+party_p_mat <- cor_pmat(df_parties)
+
+ggcorrplot(party_cor_mat,
+           type = "lower",
+           p.mat = party_p_mat,
+           sig.level = 0.05,
+           insig = "blank",
+           outline.col = "black",
+           ggtheme = ggthemes::theme_clean(),
+           colors = c("red", "white", "blue"),
+           lab = TRUE,
+           lab_size = 3)
+
+
+```
+
+```{r}
+df_viz <- df %>%
+  mutate(
+    Party = case_when(
+      prtvgde2 == 1 ~ "CDU/CSU",
+      prtvgde2 == 2 ~ "SPD",
+      prtvgde2 == 3 ~ "Die Linke",
+      prtvgde2 == 4 ~ "Greens",
+      prtvgde2 == 5 ~ "FDP",
+      prtvgde2 == 6 ~ "AfD",
+      prtvgde2 == 7 ~ "FV",
+      prtvgde2 == 8 ~ "DieBasis",
+      prtvgde2 == 9 ~ "DiePartie",
+      TRUE ~ NA_character_
+    )
+  ) %>%
+  drop_na(Party, imbgeco) %>% 
+  filter(imbgeco <= 10)
+
+
+ggplot(df_viz, aes(x = reorder(Party, imbgeco, FUN = median), y = imbgeco, fill = Party)) +
+  geom_boxplot(alpha = 0.7, outlier.alpha = 0.2) +
+  theme_bw() +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(title = "Views on Immigration's Economic Impact by German Political Party",
+       x = "Political Party",
+       y = "Immigration is Good for Economy (0-10 Scale)") +
+  theme(legend.position = "none")
+```
+
