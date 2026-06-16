@@ -54,6 +54,10 @@ These are the variables I downlaoded: [https://ess.sikt.no/en/data-builder/?roun
 This leads us to a simple research question: **"Does heavy internet use degrade institutional trust, and is this effect accelerated for people who actively post about politics online?"**
 
 
+**3. Loading the dataset and Key Commands**
+
+
+
 :::::: col-sm-6
 ::::: {.card .border-primary .mb-3 style="max-width: 50rem;"}
 ::: card-header
